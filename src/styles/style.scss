@@ -35,10 +35,13 @@
 }
 
 .nav--social{
-
 	ul{
 		display: flex;
 		justify-content: space-between;
+	}
+
+	body.player--active &{
+		padding-bottom: 45px;
 	}
 }
 
@@ -58,4 +61,22 @@
 		right: -245px;
 		opacity: 0.2;
 	}	
+}
+
+
+
+.container--player{
+	display: none;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	height: 50px;
+	background: $black2;
+	// background: red;
+	border-top: 2px solid $black3;
+
+	body.player--active &{
+		display: block;
+	}
 }
