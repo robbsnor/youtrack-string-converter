@@ -21,8 +21,8 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name: '[name].[hash].[ext]',
-            outputPath: 'img'
-
+            outputPath: 'img',
+            folder: 'src/assets/patterns'
           }
         }
       }

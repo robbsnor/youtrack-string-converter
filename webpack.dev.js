@@ -22,6 +22,8 @@ module.exports = merge(common, {
   },
   // devtool: 'inline-source-map',
   devServer: {
+    host: '192.168.0.106',
+    port: 8080,
     contentBase: './dist'
   }
 });

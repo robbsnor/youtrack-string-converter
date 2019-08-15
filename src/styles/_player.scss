@@ -1,0 +1,16 @@
+
+.container--player{
+	display: none;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	height: 50px;
+	background: $bg2;
+	border-top: 2px solid $bg3;
+	z-index: 999;
+
+	body.player--active &{
+		display: block;
+	}
+}

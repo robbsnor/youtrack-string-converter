@@ -1,0 +1,39 @@
+
+.container--pattern{
+	position: fixed;
+	top: 45px;
+	right: 45px;
+	bottom: 45px;
+	width: 290px;
+	background-image: url("../assets/patterns/4.png");
+	background-size: 100%;
+	overflow: hidden;
+	z-index: 900;
+
+
+	.pattern--controlls{
+		display: flex;
+		position: relative;
+		top: -25px;
+		height: 50px;
+		background: rgba(black, 0.66);
+		justify-content: space-around;
+		align-items: center;
+		
+		display: none;
+
+		.controll{
+			color: white;
+			font-size: 20px;
+		}
+	}
+
+	@include media-breakpoint-down(md){
+		right: -245px;
+		opacity: 0.2;
+	}
+
+	@include media-breakpoint-down(sm){
+		right: -230px;
+	}
+}

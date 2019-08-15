@@ -2,43 +2,90 @@
 <html>
 <head>
 	<title>Home</title>
+	<meta name="theme-color" content="#000">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body class="player--active">
+<body>
 
 	<div class="container--nav">
-		<a href="#">
+		<a href="#label" data-menuanchor="label">
 			<img src="../assets/skankandbass.png" alt="" class="logo">
 		</a>
 		<nav class="nav--main">
 			<ul>
-				<li><a href="#">home</a></li>
-				<li><a href="#">label</a></li>
-				<li><a href="#">music</a></li>
-				<li><a href="#">events</a></li>
-				<li><a href="#">dj sets</a></li>
-				<li><a href="#">merch</a></li>
+				<!-- <li><a href="#">home</a></li> -->
+				<li data-menuanchor="label"><a href="#label" class="active">label</a></li>
+				<li data-menuanchor="music"><a href="#music">music</a></li>
+				<li data-menuanchor="events"><a href="#events">events</a></li>
+				<li data-menuanchor="djsets"><a href="#djsets">dj sets</a></li>
+				<li data-menuanchor="merch"><a href="#merch">merch</a></li>
 			</ul>
 		</nav>
 		<nav class="nav--social">
 			<ul>
-				<li><a href="#"><i class="im im-youtube"></i></a></li>
-				<li><a href="#"><i class="im im-facebook"></i></a></li>
-				<li><a href="#"><i class="im im-twitter"></i></a></li>
-				<li><a href="#"><i class="im im-instagram"></i></a></li>
-				<li><a href="#"><i class="im im-soundcloud"></i></a></li>
-				<li><a href="#"><i class="im im-spotify"></i></a></li>
+				<li><a href="http://instagram.com/skankandbass" target="_blank"><i class="im im-instagram"></i></a></li>
+				<li><a href="http://facebook.com/skankandbass" target="_blank"><i class="im im-facebook"></i></a></li>
+				<li><a href="http://twitter.com/skankandbass" target="_blank"><i class="im im-twitter"></i></a></li>
+				<li><a href="http://soundcloud.com/skankandbass" target="_blank"><i class="im im-soundcloud"></i></a></li>
+				<li><a href="http://youtube.com/skankandbass" target="_blank"><i class="im im-youtube"></i></a></li>
+				<li><a href="https://open.spotify.com/user/skankandbass" target="_blank"><i class="im im-spotify"></i></a></li>
 			</ul>
 		</nav>
 	</div>
 
-	<div class="container--swirl">
-		<nav class="swirl--controlls">
-			<i class="im im-pause"></i>
+	
+	<div class="container--pattern">
+		<nav class="pattern--controlls">
+			<i class="controll im im-previous"></i>
+			<i class="controll im im-pause"></i>
+			<i class="controll im im-next"></i>
 		</nav>
 	</div>
 
 	<div class="container--player">
 	</div>
-	
+
+
+	<div id="fullpage">
+		<div class="section">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<h1>Label</h1>
+						<p>Skankandbass is dedicated towards the official promotion of record labels and artists in the world of drum & bass music. Since inception in 2010, Skankandbass has unearthed some of the freshest talents in the scene and has opened many doors for unsigned artists.</p>
+						<p>Now, a few years in to the game, Skankandbass decides to take on the role of a record label to put together a series of free download singles which aims to further help spread the work of the best unsigned, newcomer artists who deserve more recognition.</p>
+						<p>Please send demos for our label to <a href="http://send.mu/Skankandbass" target="_blank">http://send.mu/Skankandbass</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<h1>music</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section" data-anchor="slide2">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<h1>events</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section" data-anchor="djsets">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<h1>dj sets</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

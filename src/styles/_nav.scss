@@ -1,0 +1,55 @@
+
+.container--nav{
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	top: 45px;
+	bottom: 45px;
+	left: 45px;
+	width: 240px;
+	z-index: 900;
+
+	@include media-breakpoint-down(sm){
+		display: none;
+	}
+
+	.logo{
+		width: 195px;
+	}
+
+	.nav--main{
+		a{
+			font-size: 38px;
+			text-transform: uppercase;
+			letter-spacing: 0.5rem;
+			transition: padding .25s;
+			color: darken($primary, 20%);
+			font-weight: 700;
+		}
+
+		a:hover,
+		li.active a{
+			padding-left: 20px;
+			text-decoration: none;
+			color: $primary;
+		}
+	}
+}
+
+
+.nav--social{
+	ul{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		i{
+			font-size: 20px;
+		}
+	}
+
+	body.player--active &{
+		padding-bottom: 45px;
+	}
+}
