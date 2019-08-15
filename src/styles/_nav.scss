@@ -44,10 +44,18 @@
 		}
 	}
 }
-// li.active a{
-// 	padding-left: 35px;
-	
-// 	&:before{
-// 		opacity: 1;
-// 	}
-// }
+
+.container--nav--social{
+	.e-mail-list{
+		display: inline-block;
+		padding-bottom: 20px;
+	}
+	.nav--social{
+		display: flex;
+		justify-content: space-between;
+
+		i{
+			font-size: 20px;
+		}
+	}
+}
