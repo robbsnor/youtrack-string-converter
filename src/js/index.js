@@ -7,7 +7,7 @@ import fullpage from 'fullpage.js';
 
 var fullPageInstance = new fullpage('#fullpage', {
 	paddingTop: '45px',
-	menu: '.nav--main',
+	menu: '.nav__main',
 	// paddingBottom: '145px',
 	verticalCentered: false,
 	anchors:['label', 'music', 'events', 'djsets', 'merch']

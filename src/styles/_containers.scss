@@ -13,7 +13,18 @@
 	}
 
 	@include media-breakpoint-down(sm){
-		padding-left: $grid-gutter-width;
-		padding-right: $grid-gutter-width;
+		padding-left: $grid-gutter-width / 2;
+		padding-right: $grid-gutter-width / 2;
+	}
+}
+
+.container__player{
+	.container{
+		@include media-breakpoint-down(lg){
+			padding-left: $body-spacing;
+		}
+		@include media-breakpoint-down(sm){
+			padding-left: $grid-gutter-width / 2;
+		}
 	}
 }

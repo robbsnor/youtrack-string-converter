@@ -1,9 +1,9 @@
 
-.container--pattern{
+.container__pattern{
 	position: fixed;
-	top: 45px;
-	right: 45px;
-	bottom: 45px;
+	top: $body-spacing;
+	right: $body-spacing;
+	bottom: $body-spacing;
 	width: 290px;
 	background-image: url("../assets/patterns/2.png");
 	background-size: 100%;
@@ -11,7 +11,7 @@
 	z-index: 800;
 
 
-	.pattern--controlls{
+	.pattern__controlls{
 		display: flex;
 		position: relative;
 		top: -25px;
@@ -22,7 +22,7 @@
 		
 		display: none;
 
-		.controll{
+		i{
 			color: white;
 			font-size: 20px;
 		}
