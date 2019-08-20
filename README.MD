@@ -3,10 +3,10 @@
 ## Install dependencies
 ```npm i```
 
-## run dev
+## Run dev
 ```npm run start```
 
-## run production
+## Run production
 ```npm run build```
 
 
