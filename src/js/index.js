@@ -9,10 +9,9 @@ var fullPageInstance = new fullpage('#fullpage', {
 	paddingTop: '45px',
 	menu: '.nav--main',
 	// paddingBottom: '145px',
-	scrollOverflow: true,
-	scrollOverflowOptions: { disablePointer: true },
 	verticalCentered: false,
 	anchors:['label', 'music', 'events', 'djsets', 'merch']
 });
+
 
 console.log(Math.floor(Math.random() * 6) + 1  );

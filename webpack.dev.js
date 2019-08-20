@@ -20,10 +20,11 @@ module.exports = merge(common, {
   		}
   	]
   },
-  // devtool: 'inline-source-map',
   devServer: {
+    // local IPv4 address
+    // remove for localhost
     host: '192.168.0.106',
     port: 8080,
     contentBase: './dist'
-  }
+  },
 });

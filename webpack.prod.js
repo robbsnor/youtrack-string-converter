@@ -34,8 +34,14 @@ module.exports = merge(common, {
   ],
   optimization: {
   	minimizer: [
-  		new OptimizeCssAssetsPlugin(),
-  		new TerserPlugin()
+  		new OptimizeCssAssetsPlugin({
+        // remove comments from css
+        cssProcessorPluginOptions: { preset: ['default', { discardComments: { removeAll: true } }]}
+      }),
+  		new TerserPlugin({
+        // remove comments from js
+        terserOptions: { output: {comments: false} }
+      })
   	]
   }
 });

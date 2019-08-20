@@ -43,6 +43,15 @@
 			}
 		}
 	}
+
+	// same as :hover
+	li.active a{
+		padding-left: 35px;
+
+		&:before{
+			opacity: 1;
+		}
+	}
 }
 
 .container--nav--social{

@@ -9,7 +9,7 @@ $primary: #fff600;
 
 
 // bootstrap overides
-$enable-rounded: false;
+// $enable-rounded: false;
 $input-btn-focus-width: 0;
 $headings-color: $primary;
 
@@ -27,3 +27,7 @@ $container-max-widths: (
   lg: 100%,
   xl: 960px
 );
+
+
+$tooltip-bg: $bg3;
+

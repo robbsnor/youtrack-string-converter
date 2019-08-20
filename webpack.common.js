@@ -1,4 +1,3 @@
-const common = require('./webpack.common.js');
 const merge = require('webpack-merge');
 const path = require('path');
 const webpack = require('webpack');
@@ -30,12 +29,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/templates/index.html'
+      template: 'src/templates/index.html',
+      // favicon: 'src/assets/favicon/logo.png'
     }),
     new webpack.ProvidePlugin({
+      // use jQuery in all js files
       $: 'jquery',
       jQuery: 'jquery'
     })
-  ],
-  devtool: 'inline-source-map'
+  ]
 };
