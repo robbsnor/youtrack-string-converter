@@ -6,7 +6,7 @@ import fullpage from 'fullpage.js';
 // import 'https://connect.soundcloud.com/sdk/sdk-3.3.2.js';
 
 var fullPageInstance = new fullpage('#fullpage', {
-	paddingTop: '45px',
+	// paddingTop: '45px',
 	menu: '.nav__main',
 	// paddingBottom: '145px',
 	// verticalCentered: false,
