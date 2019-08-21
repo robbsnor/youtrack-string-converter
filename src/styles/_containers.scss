@@ -1,13 +1,12 @@
 
 .container{
 	@include media-breakpoint-down(lg){
-		padding-left: 330px;
+		padding-left: 380px;
 		padding-right: 380px;
 		// background: orange;
 	}
 
 	@include media-breakpoint-down(md){
-		padding-left: 330px;
 		padding-right: 90px;
 		// background: green;
 	}
