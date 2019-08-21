@@ -9,7 +9,7 @@ var fullPageInstance = new fullpage('#fullpage', {
 	paddingTop: '45px',
 	menu: '.nav__main',
 	// paddingBottom: '145px',
-	verticalCentered: false,
+	// verticalCentered: false,
 	anchors:['label', 'music', 'events', 'djsets', 'merch']
 });
 

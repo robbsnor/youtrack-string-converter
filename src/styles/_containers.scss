@@ -18,13 +18,7 @@
 	}
 }
 
-.container__player{
-	.container{
-		@include media-breakpoint-down(lg){
-			padding-left: $body-spacing;
-		}
-		@include media-breakpoint-down(sm){
-			padding-left: $grid-gutter-width / 2;
-		}
-	}
+.container-fluid{
+	padding-left: $body-spacing;
+	padding-right: $body-spacing;
 }
