@@ -1,6 +1,7 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
+const ip = require('ip');
 
 module.exports = merge(common, {
   mode: 'development',
@@ -21,9 +22,7 @@ module.exports = merge(common, {
   	]
   },
   devServer: {
-    // local IPv4 address
-    // remove for localhost
-    host: '192.168.0.106',
+    host: ip.address(),
     port: 8080,
     contentBase: './dist'
   },
