@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    vendor: './src/js/vendor.js',
     app: './src/js/index.js'
   },
   module: {
@@ -32,5 +31,10 @@ module.exports = {
       template: 'src/templates/index.html'
     })
   ],
-  devtool: 'inline-source-map'
+  devtool: 'inline-source-map',
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  }
 };
