@@ -29,13 +29,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/templates/index.html',
-      // favicon: 'src/assets/favicon/logo.png'
-    }),
-    new webpack.ProvidePlugin({
-      // use jQuery in all js files
-      $: 'jquery',
-      jQuery: 'jquery'
+      template: 'src/templates/index.html'
     })
   ],
   devtool: 'inline-source-map'
