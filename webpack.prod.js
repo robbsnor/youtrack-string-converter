@@ -7,50 +7,49 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = merge(common, {
-  mode: 'production',
-  output: {
-    filename: '[name].[contenthash].js',
-    path: path.resolve(__dirname, 'dist')
-  },
-  module: {
-  	rules: [
-  		{
-  		  test: /\.(sa|sc|c)ss$/,
-  		  use: [
-  		    MiniCssExtractPlugin.loader,
+	mode: 'production',
+	output: {
+		filename: '[name].[contenthash].js',
+		path: path.resolve(__dirname, 'dist')
+	},
+	module: {
+		rules: [
+			{
+				test: /\.(sa|sc|c)ss$/,
+				exclude: [path.resolve(__dirname, 'node_modules')],
+				use: [
+					MiniCssExtractPlugin.loader,
 					'css-loader',
 					{
 						loader: 'postcss-loader',
 						options: {
-							sourceMap: true,
 							config: {
 								path: 'postcss.config.js'
 							}
 						}
 					},
-  		    'sass-loader'
-  		  ]
-  		}
-  	]
-  },
-  plugins: [
-  	new MiniCssExtractPlugin(
-  		{
-  			filename: '[name].[contenthash].css'
-  		}
-		),
-  	new CleanWebpackPlugin()
-  ],
-  optimization: {
-  	minimizer: [
-  		new OptimizeCssAssetsPlugin({
-        // remove comments from css
-        cssProcessorPluginOptions: { preset: ['default', { discardComments: { removeAll: true } }]}
-      }),
-  		new TerserPlugin({
-        // remove comments from js
-        terserOptions: { output: {comments: false} }
-      })
-  	]
-  }
+					'sass-loader'
+				]
+			}
+		]
+	},
+	plugins: [
+		new MiniCssExtractPlugin(
+			{
+				filename: '[name].[contenthash].css'
+			}
+		)
+	],
+	optimization: {
+		minimizer: [
+			new OptimizeCssAssetsPlugin({
+				// remove comments from css
+				cssProcessorPluginOptions: { preset: ['default', { discardComments: { removeAll: true } }] }
+			}),
+			new TerserPlugin({
+				// remove comments from js
+				terserOptions: { output: { comments: false } }
+			})
+		]
+	}
 });
