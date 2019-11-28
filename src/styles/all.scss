@@ -6,8 +6,12 @@
 @import 'var';
 
 // vendors
-@import 'bootstrap';
+@import "node_modules/bootstrap/scss/bootstrap";
 
 // all
 @import 'debug';
 @import 'default';
+
+body{
+  // display: none;
+}
