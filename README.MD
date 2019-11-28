@@ -3,7 +3,7 @@
 npm i
 ```
 
-## Run dev
+## Run
 ```
 npm run start
 ```
