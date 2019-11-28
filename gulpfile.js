@@ -45,12 +45,13 @@ function serve() {
   browserSync.init({
     server: {
       baseDir: "./dist",
-      index: "/index.html"
+      index: "/index.html",
+      notify: false
     }
   });
-  gulp.watch('./src/**/*.js', compileJs);
-  gulp.watch('./src/**/*.scss', compileScss);
   gulp.watch('./src/**/*.html', compileHtml);
+  gulp.watch('./src/**/*.scss', compileScss);
+  gulp.watch('./src/**/*.js', compileJs);
   gulp.watch('./src/**/*.{png,jpg,gif,svg}', compileImg);
 };
 
