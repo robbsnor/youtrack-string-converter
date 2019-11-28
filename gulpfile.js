@@ -46,6 +46,7 @@ function serve() {
     server: {
       baseDir: "./dist",
       index: "/index.html",
+      open: "external",
       notify: false
     }
   });
