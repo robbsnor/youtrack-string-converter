@@ -1,30 +1,53 @@
-body:after {
-  position: fixed;
-  display: block;
-  bottom: 0;
-  left: 0;
-  background: #fff;
-  padding: 0 5px;
-  font-size: 16px;
-  border-radius: 0 3px 0 0;
-  z-index: 99999999999;
+.fe-debug{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
-  @include media-breakpoint-up(xl){
-    content:"> xl";
-  }
-  @include media-breakpoint-down(xl){
-      content:"xl";
-  }
-  @include media-breakpoint-down(lg){
-      content:"lg";
-  }
-  @include media-breakpoint-down(md){
-      content:"md";
-  }
-  @include media-breakpoint-down(sm){
-      content:"sm";
-  }
-  @include media-breakpoint-down(xs){
-      content:"xs";
-  }
+    display: flex;
+
+    background: #202020;
+    color: white;
+
+    text-transform: uppercase;
+    font-weight: lighter;
+
+
+    .debug-item{
+        display: flex;
+        padding-right: 20px;
+        padding-left: 20px;
+
+        &:nth-child(odd){
+            background: #303030;
+        }
+
+        .icon{
+            padding-right: 10px;
+            // margin-right: 5px;
+        }
+    }
+    
+
+    .bootstrap-bp .content:after {
+
+        @include media-breakpoint-up(xl){
+            content:"> xl";
+        }
+        @include media-breakpoint-down(xl){
+            content:"xl";
+        }
+        @include media-breakpoint-down(lg){
+            content:"lg";
+        }
+        @include media-breakpoint-down(md){
+            content:"md";
+        }
+        @include media-breakpoint-down(sm){
+            content:"sm";
+        }
+        @include media-breakpoint-down(xs){
+            content:"xs";
+        }
+    }
 }

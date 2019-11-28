@@ -9,12 +9,15 @@
   "devDependencies": {
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
+    "gulp-browserify": "^0.5.1",
     "gulp-clean": "^0.4.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5"
   },
   "dependencies": {
-    "bootstrap": "^4.4.0"
+    "@fortawesome/fontawesome-free": "^5.11.2",
+    "bootstrap": "^4.4.0",
+    "jquery": "^3.4.1"
   }
 }

@@ -6,7 +6,6 @@ const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
 
 
-
 // compilers
 function compileHtml() {
   return gulp.src('./src/**/*.html')
@@ -40,6 +39,8 @@ function compileImg() {
 
 
 
+
+
 // browser-sync
 function serve() {
   browserSync.init({
@@ -64,6 +65,6 @@ function deleteDist() {
 
 
 // gulp
-const compilers = gulp.series(compileHtml, compileScss, compileJs, compileImg);
+const compilers = gulp.parallel(compileHtml, compileScss, compileJs, compileImg);
 
 exports.default = gulp.series(deleteDist, compilers, serve);
