@@ -32,9 +32,10 @@ function compileJs() {
 }
 
 function compileImg() {
-  return gulp.src('./src/**/*.jpg')
+  return gulp.src('./src/**/*.{png,jpg,gif,svg}')
     .pipe(rename({dirname: '/'}))
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./dist/'))
+    .pipe(browserSync.stream());
 }
 
 
@@ -50,6 +51,7 @@ function serve() {
   gulp.watch('./src/**/*.js', compileJs);
   gulp.watch('./src/**/*.scss', compileScss);
   gulp.watch('./src/**/*.html', compileHtml);
+  gulp.watch('./src/**/*.{png,jpg,gif,svg}', compileImg);
 };
 
 
@@ -65,4 +67,5 @@ function deleteDist() {
 // gulp
 const compilers = gulp.parallel(compileHtml, compileScss, compileJs, compileImg);
 
+exports.compile = gulp.series(deleteDist, compilers);
 exports.default = gulp.series(deleteDist, compilers, serve);

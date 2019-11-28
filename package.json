@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "gulp"
+    "start": "gulp",
+    "compile": "gulp compile"
   },
   "repository": {
     "type": "git",
