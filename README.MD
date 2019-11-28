@@ -1,12 +1,9 @@
-# Dough
-
 ## Install dependencies
-```npm i```
+```
+npm i
+```
 
 ## Run dev
-```npm run start```
-
-## Run production
-```npm run build```
-
-
+```
+npm run start
+```
