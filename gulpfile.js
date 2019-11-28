@@ -39,8 +39,6 @@ function compileImg() {
 
 
 
-
-
 // browser-sync
 function serve() {
   browserSync.init({
