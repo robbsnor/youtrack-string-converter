@@ -8,10 +8,7 @@ const dev = require('./gulpfile.dev.js');
 
 // delete build
 function deleteDist() {
-  return gulp.src('./dist', {
-      read: false,
-      allowEmpty: true
-    })
+  return gulp.src('./dist', {read: false,allowEmpty: true})
     .pipe(clean());
 }
 
