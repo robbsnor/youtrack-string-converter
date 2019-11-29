@@ -4,6 +4,7 @@ const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
+const cleanCSS = require('gulp-clean-css');
 
 
 // compilers
@@ -16,8 +17,9 @@ function compileHtml() {
 
 function compileScss() {
   return gulp.src('./src/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(sourcemaps.write())
     .pipe(rename({dirname: '/'}))
     .pipe(gulp.dest('./build'))
     .pipe(browserSync.stream());
@@ -46,8 +48,6 @@ function serve() {
     server: {
       baseDir: "./build",
       index: "/index.html",
-      open: "external",
-      notify: false
     }
   });
   gulp.watch('./src/**/*.html', compileHtml);
@@ -60,7 +60,10 @@ function serve() {
 
 // delete build
 function deleteBuild() {
-  return gulp.src('./build', {read: false, allowEmpty: true})
+  return gulp.src('./build', {
+      read: false,
+      allowEmpty: true
+    })
     .pipe(clean());
 }
 
