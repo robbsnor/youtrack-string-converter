@@ -1,9 +1,6 @@
 const gulp = require('gulp');
-const clean = require('gulp-clean');
 const sass = require('gulp-sass');
-const sourcemaps = require('gulp-sourcemaps');
 const rename = require('gulp-rename');
-const browserSync = require('browser-sync').create();
 const cleanCSS = require('gulp-clean-css');
 
 
@@ -25,18 +22,7 @@ function compileJs() {
 
 
 
-// delete dist
-function deleteDist() {
-  return gulp.src('./dist', {
-      read: false,
-      allowEmpty: true
-    })
-    .pipe(clean());
-}
-
-
-
-// gulp
+// gulp functions and exports
 const compilers = gulp.parallel(compileScss, compileJs);
 
 exports.compile = compilers;

@@ -1,5 +1,4 @@
 const gulp = require('gulp');
-const clean = require('gulp-clean');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const rename = require('gulp-rename');
@@ -58,19 +57,8 @@ function serve() {
 
 
 
-// delete build
-function deleteBuild() {
-  return gulp.src('./dist', {
-      read: false,
-      allowEmpty: true
-    })
-    .pipe(clean());
-}
-
-
-
-// gulp
+// gulp functions and exports
 const compilers = gulp.parallel(compileHtml, compileScss, compileJs, compileImg);
 
-exports.compile = gulp.series(deleteBuild, compilers);
-exports.default = gulp.series(deleteBuild, compilers, serve);
+exports.compile = gulp.series(compilers);
+exports.default = gulp.series(compilers, serve);
