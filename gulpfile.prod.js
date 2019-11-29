@@ -5,7 +5,6 @@ const cleanCSS = require('gulp-clean-css');
 
 
 // compilers
-
 function compileScss() {
   return gulp.src('./src/**/*.scss')
     .pipe(sass().on('error', sass.logError))
