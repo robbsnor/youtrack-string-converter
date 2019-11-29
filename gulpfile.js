@@ -58,7 +58,7 @@ function serve() {
 
 
 
-// delete dist
+// delete build
 function deleteBuild() {
   return gulp.src('./build', {read: false, allowEmpty: true})
     .pipe(clean());
