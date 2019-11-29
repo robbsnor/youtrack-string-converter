@@ -10,7 +10,7 @@ const browserSync = require('browser-sync').create();
 function compileHtml() {
   return gulp.src('./src/**/*.html')
     .pipe(rename({dirname: '/'}))
-    .pipe(gulp.dest('./dist/'))
+    .pipe(gulp.dest('./build/'))
     .pipe(browserSync.stream());
 }
 
@@ -19,7 +19,7 @@ function compileScss() {
     .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.init())
     .pipe(rename({dirname: '/'}))
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('./build'))
     .pipe(browserSync.stream());
 }
 
@@ -27,14 +27,14 @@ function compileJs() {
   return gulp.src('./src/**/*.js')
     .pipe(sourcemaps.init())
     .pipe(rename({dirname: '/'}))
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('./build'))
     .pipe(browserSync.stream());
 }
 
 function compileImg() {
   return gulp.src('./src/**/*.{png,jpg,gif,svg}')
     .pipe(rename({dirname: '/'}))
-    .pipe(gulp.dest('./dist/'))
+    .pipe(gulp.dest('./build/'))
     .pipe(browserSync.stream());
 }
 
@@ -44,7 +44,7 @@ function compileImg() {
 function serve() {
   browserSync.init({
     server: {
-      baseDir: "./dist",
+      baseDir: "./build",
       index: "/index.html",
       open: "external",
       notify: false
@@ -59,8 +59,8 @@ function serve() {
 
 
 // delete dist
-function deleteDist() {
-  return gulp.src('./dist', {read: false, allowEmpty: true})
+function deleteBuild() {
+  return gulp.src('./build', {read: false, allowEmpty: true})
     .pipe(clean());
 }
 
@@ -69,5 +69,5 @@ function deleteDist() {
 // gulp
 const compilers = gulp.parallel(compileHtml, compileScss, compileJs, compileImg);
 
-exports.compile = gulp.series(deleteDist, compilers);
-exports.default = gulp.series(deleteDist, compilers, serve);
+exports.compile = gulp.series(deleteBuild, compilers);
+exports.default = gulp.series(deleteBuild, compilers, serve);
