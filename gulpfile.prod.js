@@ -8,12 +8,6 @@ const cleanCSS = require('gulp-clean-css');
 
 
 // compilers
-function compileHtml() {
-  return gulp.src('./src/**/*.html')
-    .pipe(rename({dirname: '/'}))
-    .pipe(gulp.dest('./dist/'))
-    .pipe(browserSync.stream());
-}
 
 function compileScss() {
   return gulp.src('./src/**/*.scss')
@@ -27,12 +21,6 @@ function compileJs() {
   return gulp.src('./src/**/*.js')
     .pipe(rename({dirname: '/'}))
     .pipe(gulp.dest('./dist'))
-}
-
-function compileImg() {
-  return gulp.src('./src/**/*.{png,jpg,gif,svg}')
-    .pipe(rename({dirname: '/'}))
-    .pipe(gulp.dest('./dist/'))
 }
 
 
@@ -49,6 +37,6 @@ function deleteDist() {
 
 
 // gulp
-const compilers = gulp.parallel(compileHtml, compileScss, compileJs, compileImg);
+const compilers = gulp.parallel(compileScss, compileJs);
 
-exports.default = gulp.series(deleteDist, compilers);
+exports.compile = compilers;
