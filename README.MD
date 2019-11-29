@@ -4,19 +4,19 @@ npm i
 ```
 
 ## Run dev server
-Runs a browsersync dev server, served from *build*.
+Runs a browsersync dev server, served from the *build* folder.
 ```
 npm run start
 ```
 
-## Recompile (./build/)
-Recompiles the *build* folder without drowsersync.
+## Recompile dev files
+Recompiles the *build* folder without browsersync.
 ```
 npm run compile
 ```
 
-## Poduction (./dist/)
-When ready for production. Generates a *dist* folder.
+## Ready for poduction
+Run when ready for production. Generates a *dist* folder.
 ```
 npm run prod
 ```
