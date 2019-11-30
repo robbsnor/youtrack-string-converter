@@ -55,7 +55,7 @@ function bsServe() {
     notify: false,
     ghostMode: false,
   });
-  
+
   gulp.watch('./src/**/*.html', compileHtml);
   gulp.watch('./src/**/*.scss', compileScss);
   gulp.watch('./src/**/*.js', compileJs);
@@ -65,7 +65,7 @@ function bsServe() {
 
 
 // gulp functions and exports
-// v - shared functions between 'Dev compile' and 'Dev serve' - (73, 74)
+// v - shared functions between 'Dev compile' and 'Dev serve'
 const compilersForDev = gulp.parallel(compileHtml, compileScss, compileJs, compileImg);
 
 exports.compilersForProd        = gulp.parallel(compileHtml, compileImg);
