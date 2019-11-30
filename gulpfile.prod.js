@@ -7,7 +7,7 @@ const cleanCSS = require('gulp-clean-css');
 
 // compilers
 function compileScss() {
-  return gulp.src(['./src/**/*.scss', '!./src/**/debug.scss'])
+  return gulp.src(['./src/**/*.scss', '!./src/**/dev.scss'])
     .pipe(sass().on('error', sass.logError))
     .pipe(rename({dirname: '/'}))
     .pipe(cleanCSS({compatibility: 'ie8'}))
@@ -23,6 +23,4 @@ function compileJs() {
 
 
 // gulp functions and exports
-const compilers = gulp.parallel(compileScss, compileJs);
-
-exports.compile = compilers;
+exports.compilersForProd = gulp.parallel(compileScss, compileJs);

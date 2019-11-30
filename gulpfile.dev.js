@@ -15,18 +15,19 @@ function compileHtml() {
 }
 
 function compileScss() {
-  return gulp.src(['./src/**/*.scss', '!./src/**/debug.scss'])
-    .pipe(sourcemaps.init())
+  return gulp.src(['./src/**/*.scss', '!./src/**/dev.scss'])
     .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write())
     .pipe(rename({dirname: '/'}))
     .pipe(gulp.dest('./dist'))
     .pipe(browserSync.stream());
 }
 
-function debug() {
-  return gulp.src('./src/**/debug.scss')
+function compileScssDev() {
+  return gulp.src('./src/**/dev.scss')
+    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
+    .pipe(sourcemaps.write())
+    // overwrites all.scss from compileScss()
     .pipe(rename('all.css'))
     .pipe(gulp.dest('./dist'))
 }
@@ -49,7 +50,7 @@ function compileImg() {
 
 
 // browser-sync
-function serve() {
+function bsServe() {
   browserSync.init({
     server: {
       baseDir: "./dist",
@@ -57,7 +58,7 @@ function serve() {
     }
   });
   gulp.watch('./src/**/*.html', compileHtml);
-  gulp.watch('./src/**/*.scss', gulp.series(compileScss, debug));
+  gulp.watch('./src/**/*.scss', gulp.series(compileScss, compileScssDev));
   gulp.watch('./src/**/*.js', compileJs);
   gulp.watch('./src/**/*.{png,jpg,gif,svg}', compileImg);
 };
@@ -65,9 +66,6 @@ function serve() {
 
 
 // gulp functions and exports
-const compilers = gulp.parallel(compileHtml, compileScss, compileJs, compileImg);
-const compilersDev = gulp.series(compilers, debug);
-
-exports.compile = gulp.series(compilers);
-exports.compileDev = compilersDev;
-exports.default = gulp.series(compilersDev, serve);
+exports.compilersForProd        = gulp.parallel(compileHtml, compileJs, compileImg);
+exports.compilersForDevCompile  = gulp.series(gulp.parallel(compileHtml, compileScss, compileJs, compileImg), compileScssDev);
+exports.compilersForDevServe  = gulp.series(gulp.parallel(compileHtml, compileScss, compileJs, compileImg), compileScssDev, bsServe);
