@@ -1,15 +1,15 @@
+// dough
+@import 'dough';
+
 // var
 @import 'var';
 
 // vendors
 @import "node_modules/bootstrap/scss/bootstrap";
 
-// dough
-@import 'dough';
-@import 'dev/dev';
-
 // all
 @import 'default';
 @import 'classes';
 
 @import 'hotfix';
+@import 'dev/dev';
