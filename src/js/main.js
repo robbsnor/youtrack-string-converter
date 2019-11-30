@@ -12,9 +12,9 @@ function dPannelOpen() {
 
 function dPannelClose() {
   $('body').removeClass('d_debug-pannel--open')
-  var minOffsetLeft = $('.d_debug-pannel').width() - $('.d_debug-pannel-toggle').outerWidth();
+  var OffsetLeft = $('.d_debug-pannel').width() - $('.d_debug-pannel-toggle').outerWidth();
   $('.d_debug-pannel').css({
-    'left': -minOffsetLeft
+    'left': -OffsetLeft
   })
 }
 
@@ -26,6 +26,8 @@ function dPannlToggle() {
   }
 }
 
+
+// fire
 $('.d_debug-pannel-toggle').on('click', function () {
   dPannlToggle();
 })
@@ -42,6 +44,7 @@ function dGridHide() {
   $('body').removeClass('d_debug-grid-overlay--show')
   $('.d_debug-grid-overlay-toggle').removeClass('active')
 }
+
 function dGridToggle() {
   if ($('body').hasClass('d_debug-grid-overlay--show')) {
     dGridHide();
@@ -50,11 +53,26 @@ function dGridToggle() {
   }
 }
 
+
+// fire
 $('.d_debug-grid-overlay-toggle').on('click', function () {
   dGridToggle();
 })
 
 
+// launch settings
+dPannelOpen();
+// dGridShow();
+
+
+
+
+
+
+$(window).scroll(function () {
+  var wScroll = Math.round($(this).scrollTop());
+  $('.d_window-scroll-y .d_content').html(wScroll)
+});
 
 
 
@@ -71,31 +89,10 @@ $('.d_debug-grid-overlay-toggle').on('click', function () {
 
 
 
+$(window).resize(function () {
+  var x = window.innerWidth;
+  var y = window.innerHeight;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$(function () {
-  $('.d_debug-pannel [data-toggle="tooltip"]').tooltip({
-    delay: {
-      show: 700,
-      hide: 0
-    }
-  })
-})
+  $('.d_window-size-x .d_content').html(x)
+  $('.d_window-size-y .d_content').html(y)
+});
