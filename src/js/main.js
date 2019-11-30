@@ -1,33 +1,101 @@
 console.log('Dough')
 
-var w = window.innerWidth;
-var h = window.innerHeight;
 
-$('.d_toggle').on('click', function () {
 
-  var body = $('body');
+// Debug pannel
+function dPannelOpen() {
+  $('body').addClass('d_debug-pannel--open')
+  $('.d_debug-pannel').css({
+    'left': 0
+  })
+}
 
-  if (body.hasClass('d_debug-pannel--open')) {
+function dPannelClose() {
+  $('body').removeClass('d_debug-pannel--open')
+  var minOffsetLeft = $('.d_debug-pannel').width() - $('.d_debug-pannel-toggle').outerWidth();
+  $('.d_debug-pannel').css({
+    'left': -minOffsetLeft
+  })
+}
 
-    body.removeClass('d_debug-pannel--open')
-    var minOffsetLeft = $('.d_debug-pannel').width() - $('.d_toggle').outerWidth();
-    $('.d_debug-pannel').css({'left': -minOffsetLeft})
-
+function dPannlToggle() {
+  if ($('body').hasClass('d_debug-pannel--open')) {
+    dPannelClose();
   } else {
-
-    body.addClass('d_debug-pannel--open')
-    $('.d_debug-pannel').css({'left': 0})
-
+    dPannelOpen();
   }
+}
+
+$('.d_debug-pannel-toggle').on('click', function () {
+  dPannlToggle();
 })
+
+
+
+// Debug grid overlay
+function dGridShow() {
+  $('body').addClass('d_debug-grid-overlay--show')
+  $('.d_debug-grid-overlay-toggle').addClass('active')
+}
+
+function dGridHide() {
+  $('body').removeClass('d_debug-grid-overlay--show')
+  $('.d_debug-grid-overlay-toggle').removeClass('active')
+}
+function dGridToggle() {
+  if ($('body').hasClass('d_debug-grid-overlay--show')) {
+    dGridHide();
+  } else {
+    dGridShow();
+  }
+}
+
+$('.d_debug-grid-overlay-toggle').on('click', function () {
+  dGridToggle();
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $(function () {
   $('.d_debug-pannel [data-toggle="tooltip"]').tooltip({
     delay: {
-      show: 300,
+      show: 700,
       hide: 0
     }
   })
 })
-
-
