@@ -1,13 +1,13 @@
 
 @import 'all';
 
-body.d_debug--open .d_debug{
+body.d_debug-pannel--open .d_debug-pannel {
 
     .d_toggle .d_icon {
         transform: scaleX(-1);
     }
 }
-.d_debug{
+.d_debug-pannel{
     position: fixed;
     bottom: 0;
     left: 0;
@@ -24,12 +24,12 @@ body.d_debug--open .d_debug{
     letter-spacing: .2em;
 
     transition: .3s;
+    z-index: 1200;
 
 
-    .d_debug-item{
+    .item{
         display: flex;
         justify-content: center;
-        min-width: 95px;
         padding: 3px 10px;
 
         .d_icon{
@@ -75,5 +75,16 @@ body.d_debug--open .d_debug{
         @include media-breakpoint-down(xs){
             content:"xs";
         }
+    }
+}
+
+.d_debug-grid{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1100;
+    .x{
+        height: 100vh;
+        background: rgba(pink, 0.3);
     }
 }

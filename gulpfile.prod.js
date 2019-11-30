@@ -6,7 +6,7 @@ const cleanCSS = require('gulp-clean-css');
 
 // compilers
 function compileScss() {
-  return gulp.src('./src/**/*.scss')
+  return gulp.src(['./src/**/*.scss', '!./src/**/debug.scss'])
     .pipe(sass().on('error', sass.logError))
     .pipe(rename({dirname: '/'}))
     .pipe(cleanCSS({compatibility: 'ie8'}))
