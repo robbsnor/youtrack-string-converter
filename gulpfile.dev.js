@@ -56,7 +56,9 @@ function bsServe() {
       baseDir: "./dist",
       index: "/index.html",
     },
-    open: "external"
+    open: "external",
+    notify: false,
+    ghostMode: false,
   });
   gulp.watch('./src/**/*.html', compileHtml);
   gulp.watch('./src/**/*.scss', gulp.series(compileScss, compileScssDev));
