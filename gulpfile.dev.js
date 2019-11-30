@@ -55,6 +55,7 @@ function bsServe() {
     notify: false,
     ghostMode: false,
   });
+  
   gulp.watch('./src/**/*.html', compileHtml);
   gulp.watch('./src/**/*.scss', compileScss);
   gulp.watch('./src/**/*.js', compileJs);
