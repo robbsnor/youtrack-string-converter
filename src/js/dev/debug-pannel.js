@@ -26,6 +26,7 @@ function dPannlToggle() {
 
 
 // fire
+dPannelOpen()
 $('.d_debug-pannel-toggle').on('click', function () {
   dPannlToggle();
 })
@@ -33,12 +34,20 @@ $('.d_debug-pannel-toggle').on('click', function () {
 
 
 // width and height indicator
-$(window).resize(function () {
+function setWHIndicators() {
   var x = window.innerWidth;
   var y = window.innerHeight;
 
   $('.d_window-size-x .d_content').html(x)
   $('.d_window-size-y .d_content').html(y)
+}
+
+
+// fire
+setWHIndicators();
+
+$(window).resize(function () {
+  setWHIndicators()
 });
 
 
