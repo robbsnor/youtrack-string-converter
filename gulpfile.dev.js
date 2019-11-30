@@ -66,6 +66,9 @@ function bsServe() {
 
 
 // gulp functions and exports
+// v - shared functions between 'Dev compile' and 'Dev serve' - (73, 74)
+const compilersForDev = gulp.series(gulp.parallel(compileHtml, compileScss, compileJs, compileImg), compileScssDev);
+
 exports.compilersForProd        = gulp.parallel(compileHtml, compileJs, compileImg);
-exports.compilersForDevCompile  = gulp.series(gulp.parallel(compileHtml, compileScss, compileJs, compileImg), compileScssDev);
-exports.compilersForDevServe    = gulp.series(gulp.parallel(compileHtml, compileScss, compileJs, compileImg), compileScssDev, bsServe);
+exports.compilersForDevCompile  =             compilersForDev
+exports.compilersForDevServe    = gulp.series(compilersForDev, bsServe);
