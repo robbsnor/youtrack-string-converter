@@ -1,6 +1,6 @@
 $(document).ready(function () {
-  if (window.Width < 500) {
-    alert('ok')
+  if (window.innerWidth < 500) {
+    dPannelClose()
   }
   // dPannelOpen()
   dGridShow();

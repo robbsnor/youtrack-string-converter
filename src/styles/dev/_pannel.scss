@@ -20,7 +20,6 @@ body.d_debug-pannel--open .d_debug-pannel {
   font-size: 14px;
   letter-spacing: .2em;
 
-  transition: .3s;
   z-index: 800;
 
 
@@ -31,7 +30,6 @@ body.d_debug-pannel--open .d_debug-pannel {
 
     .d_icon {
       margin-right: 10px;
-      transition: .3s;
     }
     .d_content{
     }
@@ -46,28 +44,11 @@ body.d_debug-pannel--open .d_debug-pannel {
   }
 
   .d_bootstrap-bp .d_content:after {
-    @include media-breakpoint-up(xl) {
-      content: "> xl";
-    }
-
-    @include media-breakpoint-down(xl) {
-      content: "xl";
-    }
-
-    @include media-breakpoint-down(lg) {
-      content: "lg";
-    }
-
-    @include media-breakpoint-down(md) {
-      content: "md";
-    }
-
-    @include media-breakpoint-down(sm) {
-      content: "sm";
-    }
-
-    @include media-breakpoint-down(xs) {
-      content: "xs";
-    }
+    @include media-breakpoint-up(xl) {content: "> xl";}
+    @include media-breakpoint-down(xl) {content: "xl";}
+    @include media-breakpoint-down(lg) {content: "lg";}
+    @include media-breakpoint-down(md) {content: "md";}
+    @include media-breakpoint-down(sm) {content: "sm";}
+    @include media-breakpoint-down(xs) {content: "xs";} 
   }
 }
