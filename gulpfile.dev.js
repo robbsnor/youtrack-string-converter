@@ -15,21 +15,11 @@ function compileHtml() {
 }
 
 function compileScss() {
-  return gulp.src(['./src/**/*.scss', '!./src/**/dev.scss'])
+  return gulp.src('./src/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(rename({dirname: '/'}))
     .pipe(gulp.dest('./dist'))
     .pipe(browserSync.stream());
-}
-
-function compileScssDev() {
-  return gulp.src('./src/**/dev.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write())
-    // overwrites all.scss from compileScss()
-    .pipe(rename('all.css'))
-    .pipe(gulp.dest('./dist'))
 }
 
 function compileJs() {
@@ -61,7 +51,7 @@ function bsServe() {
     ghostMode: false,
   });
   gulp.watch('./src/**/*.html', compileHtml);
-  gulp.watch('./src/**/*.scss', gulp.series(compileScss, compileScssDev));
+  gulp.watch('./src/**/*.scss', compileScss);
   gulp.watch('./src/**/*.js', compileJs);
   gulp.watch('./src/**/*.{png,jpg,gif,svg}', compileImg);
 };
@@ -70,7 +60,7 @@ function bsServe() {
 
 // gulp functions and exports
 // v - shared functions between 'Dev compile' and 'Dev serve' - (73, 74)
-const compilersForDev           = gulp.series(gulp.parallel(compileHtml, compileScss, compileJs, compileImg), compileScssDev);
+const compilersForDev = gulp.parallel(compileHtml, compileScss, compileJs, compileImg);
 
 exports.compilersForProd        = gulp.parallel(compileHtml, compileJs, compileImg);
 exports.compilersForDevCompile  =             compilersForDev

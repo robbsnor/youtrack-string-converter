@@ -1,3 +1,4 @@
+@debug "all.scss";
 
 // dough
 @import 'dough';
@@ -13,7 +14,10 @@
 @import 'classes';
 
 @import 'hotfix';
+@import 'dev/dev';
 
-@debug "all";
 
-/*! end of all.scss */
+.kaas{
+  display: grid;
+  grid-area: 1 span;
+}
