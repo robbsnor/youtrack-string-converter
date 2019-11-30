@@ -6,22 +6,33 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="./all.css">
 </head>
-<body>
+<body class="d_debug--open">
 
 	<div id="dough">dough</div>
 
-	<div class="fe-debug">
-		<div class="debug-item bootstrap-bp">
-			<div class="icon"><i class="fab fa-bootstrap"></i></div>
-			<div class="content"></div>
+	<div class="d_debug" style="display: none">
+		<div class="d_debug-item d_bootstrap-bp" data-toggle="tooltip" title="Bootstrap breakpoints">
+			<div class="d_icon"><i class="fab fa-bootstrap"></i></div>
+			<div class="d_content"></div>
 		</div>
-		<div class="debug-item window-size">
-			<div class="icon"><i class="fas fa-expand"></i></div>
-			<div class="content"></div>
+		<div class="d_debug-item d_window-size-x" data-toggle="tooltip" title="Window height">
+			<div class="d_icon"><i class="fas fa-arrows-alt-h"></i></i></div>
+			<div class="d_content">1080</div>
+		</div>
+		<div class="d_debug-item d_window-size-y" data-toggle="tooltip" title="Window width">
+			<div class="d_icon"><i class="fas fa-arrows-alt-v"></i></div>
+			<div class="d_content">1920</div>
+		</div>
+		<div class="d_debug-item d_debug-item--small c-p d_grid" data-toggle="tooltip" title="Show grid overlay">
+			<div class="d_icon m-0"><i class="fas fa-grip-lines-vertical"></i><i class="fas fa-grip-lines-vertical"></i></div>
+		</div>
+		<div class="d_debug-item d_debug-item--small c-p d_toggle">
+			<div class="d_icon m-0"><i class="fas fa-chevron-right"></i></div>
 		</div>
 	</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+	<script src="https://unpkg.com/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"></script>
 	<script src="./main.js"></script>

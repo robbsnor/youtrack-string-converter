@@ -19,7 +19,7 @@ function compileScss() {
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.write())
-    .pipe(rename({dirname: '/'}))
+    .pipe(rename('/all.css'))
     .pipe(gulp.dest('./dist'))
     .pipe(browserSync.stream());
 }
