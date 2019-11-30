@@ -68,4 +68,4 @@ function bsServe() {
 // gulp functions and exports
 exports.compilersForProd        = gulp.parallel(compileHtml, compileJs, compileImg);
 exports.compilersForDevCompile  = gulp.series(gulp.parallel(compileHtml, compileScss, compileJs, compileImg), compileScssDev);
-exports.compilersForDevServe  = gulp.series(gulp.parallel(compileHtml, compileScss, compileJs, compileImg), compileScssDev, bsServe);
+exports.compilersForDevServe    = gulp.series(gulp.parallel(compileHtml, compileScss, compileJs, compileImg), compileScssDev, bsServe);
