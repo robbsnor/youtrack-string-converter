@@ -15,13 +15,20 @@ function compileHtml() {
 }
 
 function compileScss() {
-  return gulp.src('./src/**/*.scss')
+  return gulp.src(['./src/**/*.scss', '!./src/**/debug.scss'])
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.write())
-    .pipe(rename('/all.css'))
+    .pipe(rename({dirname: '/'}))
     .pipe(gulp.dest('./dist'))
     .pipe(browserSync.stream());
+}
+
+function debug() {
+  return gulp.src('./src/**/debug.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(rename('all.css'))
+    .pipe(gulp.dest('./dist'))
 }
 
 function compileJs() {
@@ -50,7 +57,7 @@ function serve() {
     }
   });
   gulp.watch('./src/**/*.html', compileHtml);
-  gulp.watch('./src/**/*.scss', compileScss);
+  gulp.watch('./src/**/*.scss', gulp.series(compileScss, debug));
   gulp.watch('./src/**/*.js', compileJs);
   gulp.watch('./src/**/*.{png,jpg,gif,svg}', compileImg);
 };
@@ -59,6 +66,8 @@ function serve() {
 
 // gulp functions and exports
 const compilers = gulp.parallel(compileHtml, compileScss, compileJs, compileImg);
+const compilersDev = gulp.series(compilers, debug);
 
 exports.compile = gulp.series(compilers);
-exports.default = gulp.series(compilers, serve);
+exports.compileDev = compilersDev;
+exports.default = gulp.series(compilersDev, serve);
