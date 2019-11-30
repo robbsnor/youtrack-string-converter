@@ -3,6 +3,7 @@ const sass = require('gulp-sass');
 const rename = require('gulp-rename');
 const cleanCSS = require('gulp-clean-css');
 const autoprefixer = require('gulp-autoprefixer');
+const concat = require('gulp-concat');
 
 
 
@@ -17,8 +18,9 @@ function compileScss() {
 }
 
 function compileJs() {
-  return gulp.src('./src/**/*.js')
+  return gulp.src(['./src/**/*.js', '!./src/**/dev.js'])
     .pipe(rename({dirname: '/'}))
+    .pipe(concat('main.js'))
     .pipe(gulp.dest('./dist'))
 }
 

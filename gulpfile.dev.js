@@ -4,6 +4,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
 const cleanCSS = require('gulp-clean-css');
+const concat = require('gulp-concat');
 
 
 // compilers
@@ -16,8 +17,10 @@ function compileHtml() {
 
 function compileScss() {
   return gulp.src('./src/**/*.scss')
+    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(rename({dirname: '/'}))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('./dist'))
     .pipe(browserSync.stream());
 }
@@ -26,6 +29,8 @@ function compileJs() {
   return gulp.src('./src/**/*.js')
     .pipe(sourcemaps.init())
     .pipe(rename({dirname: '/'}))
+    .pipe(concat('main.js'))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('./dist'))
     .pipe(browserSync.stream());
 }
@@ -62,6 +67,6 @@ function bsServe() {
 // v - shared functions between 'Dev compile' and 'Dev serve' - (73, 74)
 const compilersForDev = gulp.parallel(compileHtml, compileScss, compileJs, compileImg);
 
-exports.compilersForProd        = gulp.parallel(compileHtml, compileJs, compileImg);
+exports.compilersForProd        = gulp.parallel(compileHtml, compileImg);
 exports.compilersForDevCompile  =             compilersForDev
 exports.compilersForDevServe    = gulp.series(compilersForDev, bsServe);
