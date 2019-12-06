@@ -16,7 +16,7 @@ function dPannelClose() {
   })
 }
 
-function dPannlToggle() {
+function dPannelToggle() {
   if ($('body').hasClass('d_debug-pannel--open')) {
     dPannelClose();
   } else {
@@ -28,7 +28,7 @@ function dPannlToggle() {
 // fire
 dPannelOpen()
 $('.d_debug-pannel-toggle').on('click', function () {
-  dPannlToggle();
+  dPannelToggle();
 })
 
 
