@@ -13,6 +13,7 @@ function compileScss() {
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(rename({dirname: '/'}))
+    .pipe(sass({outputStyle: 'compressed'}))
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest('./dist'))
 }
