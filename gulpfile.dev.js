@@ -17,6 +17,13 @@ function compileHtml() {
     .pipe(browserSync.stream());
 }
 
+function compileMustache() {
+  return gulp.src('./src/**/*.mustache')
+    .pipe(rename({dirname: '/'}))
+    .pipe(gulp.dest('./dist/'))
+    .pipe(browserSync.stream());
+}
+
 function compileScss() {
   return gulp.src('./src/**/*.scss')
     .pipe(sourcemaps.init())
@@ -52,7 +59,7 @@ function bsServe() {
   browserSync.init({
     server: {
       baseDir: "./dist",
-      index: "/index.html",
+      index: "/index.mustache",
     },
     open: "external",
     notify: false,
@@ -60,6 +67,7 @@ function bsServe() {
   });
 
   gulp.watch('./src/**/*.html', compileHtml);
+  gulp.watch('./src/**/*.mustache', compileMustache);
   gulp.watch('./src/**/*.scss', compileScss);
   gulp.watch('./src/**/*.js', compileJs);
   gulp.watch('./src/**/*.{png,jpg,gif,svg}', compileImg);
@@ -69,8 +77,8 @@ function bsServe() {
 
 // gulp functions and exports
 // v - shared functions between 'Dev compile' and 'Dev serve'
-const compilersForDev = gulp.parallel(compileHtml, compileScss, compileJs, compileImg);
+const compilersForDev = gulp.parallel(compileHtml, compileMustache, compileScss, compileJs, compileImg);
 
-exports.compilersForProd        = gulp.parallel(compileHtml, compileImg);
+exports.compilersForProd        = gulp.parallel(compileHtml, compileMustache, compileImg);
 exports.compilersForDevCompile  = compilersForDev
 exports.compilersForDevServe    = gulp.series(compilersForDev, bsServe);
