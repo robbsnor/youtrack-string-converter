@@ -1,8 +1,6 @@
 .d_debug-grid-overlay-toggle {
   background: #563d7c;
 
-  transition: .2s;
-
   &:hover {
     background: darken(#563d7c, 5)
   }
@@ -25,7 +23,6 @@ body.d_debug-grid-overlay--show {
   width: 100%;
 
   z-index: 700;
-  transition: .2s;
 
   .the-col {
     height: 100vh;
