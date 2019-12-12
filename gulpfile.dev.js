@@ -13,7 +13,7 @@ const mustache = require('gulp-mustache');
 // compilers
 function compileTemplates() {
   return gulp.src('./src/templates/**/*.html')
-    .pipe(mustache())
+    .pipe(mustache('./src/templates/content.js'))
     .pipe(rename({dirname: '/'}))
     .pipe(gulp.dest('./dist/'))
     .pipe(browserSync.stream());
