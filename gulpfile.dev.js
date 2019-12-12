@@ -65,6 +65,7 @@ function bsServe() {
   gulp.watch('./src/**/*.html', compileTemplates);
   gulp.watch('./src/**/*.scss', compileScss);
   gulp.watch('./src/**/*.js', compileJs);
+  gulp.watch('./src/**/content.js', compileTemplates);
   gulp.watch('./src/**/*.{png,jpg,gif,svg}', compileImg);
 };
 
