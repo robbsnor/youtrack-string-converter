@@ -13,7 +13,7 @@ const mustache = require('gulp-mustache');
 // compilers
 function compileTemplates() {
   return gulp.src('./src/templates/**/*.html')
-    .pipe(mustache('./src/templates/content.js'))
+    .pipe(mustache())
     .pipe(rename({dirname: '/'}))
     .pipe(gulp.dest('./dist/'))
     .pipe(browserSync.stream());
@@ -65,7 +65,6 @@ function bsServe() {
   gulp.watch('./src/**/*.html', compileTemplates);
   gulp.watch('./src/**/*.scss', compileScss);
   gulp.watch('./src/**/*.js', compileJs);
-  gulp.watch('./src/**/content.js', compileTemplates);
   gulp.watch('./src/**/*.{png,jpg,gif,svg}', compileImg);
 };
 
