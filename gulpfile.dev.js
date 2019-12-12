@@ -6,19 +6,14 @@ const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
 const cleanCSS = require('gulp-clean-css');
 const concat = require('gulp-concat');
+const mustache = require('gulp-mustache');
 
 
 
 // compilers
-function compileHtml() {
-  return gulp.src('./src/**/*.html')
-    .pipe(rename({dirname: '/'}))
-    .pipe(gulp.dest('./dist/'))
-    .pipe(browserSync.stream());
-}
-
-function compileMustache() {
-  return gulp.src('./src/**/*.mustache')
+function compileTemplates() {
+  return gulp.src('./src/templates/**/*.html')
+    .pipe(mustache({ msg: "Hello Gulp!"}))
     .pipe(rename({dirname: '/'}))
     .pipe(gulp.dest('./dist/'))
     .pipe(browserSync.stream());
@@ -59,15 +54,15 @@ function bsServe() {
   browserSync.init({
     server: {
       baseDir: "./dist",
-      index: "/index.mustache",
+      index: "/index.html",
     },
     open: "external",
     notify: false,
     ghostMode: false,
   });
 
-  gulp.watch('./src/**/*.html', compileHtml);
-  gulp.watch('./src/**/*.mustache', compileMustache);
+  gulp.watch('./src/**/*.mustache', compileTemplates);
+  gulp.watch('./src/**/*.html', compileTemplates);
   gulp.watch('./src/**/*.scss', compileScss);
   gulp.watch('./src/**/*.js', compileJs);
   gulp.watch('./src/**/*.{png,jpg,gif,svg}', compileImg);
@@ -77,8 +72,8 @@ function bsServe() {
 
 // gulp functions and exports
 // v - shared functions between 'Dev compile' and 'Dev serve'
-const compilersForDev = gulp.parallel(compileHtml, compileMustache, compileScss, compileJs, compileImg);
+const compilersForDev = gulp.parallel(compileTemplates, compileScss, compileJs, compileImg);
 
-exports.compilersForProd        = gulp.parallel(compileHtml, compileMustache, compileImg);
+exports.compilersForProd        = gulp.parallel(compileTemplates, compileImg);
 exports.compilersForDevCompile  = compilersForDev
 exports.compilersForDevServe    = gulp.series(compilersForDev, bsServe);
