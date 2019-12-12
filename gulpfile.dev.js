@@ -31,7 +31,7 @@ function compileScss() {
 }
 
 function compileJs() {
-  return gulp.src(['./src/**/*.js', '!./src/**/content.js'])
+  return gulp.src('./src/**/*.js')
     .pipe(sourcemaps.init())
     .pipe(rename({dirname: '/'}))
     .pipe(concat('main.js'))

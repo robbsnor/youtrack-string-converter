@@ -20,7 +20,7 @@ function compileScss() {
 }
 
 function compileJs() {
-  return gulp.src(['./src/**/*.js', '!./src/**/dev/**/*.js', '!./src/**/content.js'])
+  return gulp.src(['./src/**/*.js', '!./src/**/dev/**/*.js'])
     .pipe(rename({dirname: '/'}))
     .pipe(concat('main.js'))
     .pipe(uglify())
