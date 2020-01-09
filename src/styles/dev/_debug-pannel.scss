@@ -1,0 +1,54 @@
+body.d_debug-pannel--open .d_debug-pannel {
+
+  .d_debug-pannel-toggle .d_icon {
+    transform: scaleX(-1);
+  }
+}
+
+.d_debug-pannel {
+  display: flex !important;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  background: #202020;
+  color: white;
+  border-top-right-radius: 5px;
+
+  font-weight: lighter;
+  font-size: 14px;
+  letter-spacing: .2em;
+
+  z-index: 800;
+
+
+  .item {
+    display: flex;
+    justify-content: center;
+    padding: 3px 10px;
+
+    .d_icon {
+      margin-right: 10px;
+    }
+    .d_content{
+    }
+
+    &--small {
+      min-width: 0;
+      padding: 3px 10px;
+    }
+  }
+  .d_window-scroll-y .d_content{
+    min-width: 42px;
+  }
+
+  .d_bootstrap-bp .d_content:after {
+    @include media-breakpoint-up(xl) {content: "> xl";}
+    @include media-breakpoint-down(xl) {content: "xl";}
+    @include media-breakpoint-down(lg) {content: "lg";}
+    @include media-breakpoint-down(md) {content: "md";}
+    @include media-breakpoint-down(sm) {content: "sm";}
+    @include media-breakpoint-down(xs) {content: "xs";} 
+  }
+}

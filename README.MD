@@ -1,12 +1,22 @@
-# Dough
+## Install
+```
+npm i
+```
 
-## Install dependencies
-```npm i```
+## Run dev server
+Runs a browsersync dev server, served from the *build* folder.
+```
+npm run start
+```
 
-## Run dev
-```npm run start```
+## Recompile dev files
+Recompiles the *build* folder without browsersync.
+```
+npm run compile
+```
 
-## Run production
-```npm run build```
-
-
+## Ready for poduction
+Run when ready for production. Generates a *dist* folder.
+```
+npm run prod
+```

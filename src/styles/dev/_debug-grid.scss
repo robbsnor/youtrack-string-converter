@@ -1,0 +1,31 @@
+.d_debug-grid-overlay-toggle {
+  background: #563d7c;
+
+  &:hover {
+    background: darken(#563d7c, 5)
+  }
+
+  &.active {
+    background: lighten(#563d7c, 20)
+  }
+}
+
+body.d_debug-grid-overlay--show {
+  .d_debug-grid-overlay {
+    top: 0;
+  }
+}
+.d_debug-grid-overlay {
+  display: block !important;
+  
+  position: fixed;
+  top: 100%;
+  width: 100%;
+
+  z-index: 700;
+
+  .the-col {
+    height: 100vh;
+    background: rgba(pink, 0.3);
+  }
+}

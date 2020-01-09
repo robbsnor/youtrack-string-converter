@@ -1,4 +1,3 @@
-
 // dough
 @import 'dough';
 
@@ -6,8 +5,12 @@
 @import 'var';
 
 // vendors
-@import 'bootstrap';
+@import "node_modules/bootstrap/scss/bootstrap";
 
 // all
-@import 'debug';
 @import 'default';
+@import 'classes';
+
+// other
+@import 'dev/dev';
+@import 'hotfix';
