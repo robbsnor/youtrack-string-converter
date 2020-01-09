@@ -70,6 +70,10 @@ const compilersForDev = gulp.parallel(
   compileImg
 );
 
-exports.compilersForProd = gulp.parallel(compileTemplates, compileImg);
+exports.compilersForProd = gulp.parallel(
+  compileJs,
+  compileTemplates,
+  compileImg
+);
 exports.compilersForDevCompile = compilersForDev;
 exports.compilersForDevServe = gulp.series(compilersForDev, bsServe);
