@@ -29,7 +29,9 @@ function compileScss() {
 }
 
 function compileJs() {
-  return webpack_stream(webpack_config).pipe(gulp.dest("./dist/"));
+  return webpack_stream(webpack_config)
+    .pipe(gulp.dest("./dist/"))
+    .pipe(browserSync.stream());
 }
 
 function compileImg() {
