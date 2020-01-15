@@ -1,3 +1,6 @@
+
+import '../styles/all.scss';
+
 import $ from "jquery";
 window.jQuery = $;
 window.$ = $;
@@ -5,4 +8,4 @@ window.$ = $;
 import "bootstrap";
 import "@fortawesome/fontawesome-free/js/all.min.js";
 
-console.log("Main");
+console.log($('body'));

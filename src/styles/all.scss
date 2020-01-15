@@ -5,7 +5,7 @@
 @import 'var';
 
 // vendors
-@import "node_modules/bootstrap/scss/bootstrap";
+@import "~bootstrap";
 
 // all
 @import 'default';
@@ -14,3 +14,7 @@
 // other
 @import 'dev/dev';
 @import 'hotfix';
+
+.x{
+    background-color: orange;
+}
