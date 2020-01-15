@@ -20,4 +20,4 @@ exports.dev = gulp.series(deleteDist, dev.dev)
 exports.compile = dev.devCompile;
 
 // production
-exports.prod = gulp.series(deleteDist, prod.prod);
+exports.prod = gulp.series(deleteDist, prod.prod, dev.prod);
