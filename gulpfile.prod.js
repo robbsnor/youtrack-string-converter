@@ -1,22 +1,16 @@
-const gulp = require("gulp");
-const sass = require("gulp-sass");
-const rename = require("gulp-rename");
-const cleanCSS = require("gulp-clean-css");
-const autoprefixer = require("gulp-autoprefixer");
-const concat = require("gulp-concat");
-const uglify = require("gulp-uglify");
+const gulp = require('gulp');
+const webpack_stream = require("webpack-stream");
+const webpack_config = require("./webpack.prod");
 
-// compilers
-function compileScss() {
-  return gulp
-    .src("./src/**/*.scss")
-    .pipe(sass().on("error", sass.logError))
-    .pipe(autoprefixer())
-    .pipe(rename({ dirname: "/" }))
-    .pipe(sass({ outputStyle: "compressed" }))
-    .pipe(cleanCSS({ compatibility: "ie8" }))
-    .pipe(gulp.dest("./dist"));
+
+
+// functions
+function webpackProd() {
+  return webpack_stream(webpack_config)
+    .pipe(gulp.dest("./dist/"));
 }
 
-// gulp functions and exports
-exports.compilersForProd = gulp.parallel(compileScss);
+
+
+// exports
+exports.prod = webpackProd;

@@ -1,7 +1,8 @@
 var glob = require("glob");
 var path = require("path");
 var webpack = require("webpack");
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+
 
 new webpack.ProvidePlugin({
   $: "jquery",

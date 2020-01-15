@@ -1,35 +1,18 @@
-const gulp = require("gulp");
-const sass = require("gulp-sass");
-const sourcemaps = require("gulp-sourcemaps");
+const gulp = require('gulp');
 const rename = require("gulp-rename");
 const browserSync = require("browser-sync").create();
 const mustache = require("gulp-mustache");
 const webpack_stream = require("webpack-stream");
 const webpack_config = require("./webpack.dev");
 
-// compilers
+
+
+// functions
 function compileTemplates() {
   return gulp
     .src("./src/templates/**/*.html")
     .pipe(mustache())
-    .pipe(rename({ dirname: "/" }))
-    .pipe(gulp.dest("./dist/"))
-    .pipe(browserSync.stream());
-}
-
-function compileScss() {
-  return gulp
-    .src("./src/**/*.scss")
-    .pipe(sourcemaps.init())
-    .pipe(sass().on("error", sass.logError))
-    .pipe(rename({ dirname: "/" }))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest("./dist"))
-    .pipe(browserSync.stream());
-}
-
-function compileJs() {
-  return webpack_stream(webpack_config)
+    .pipe(rename({dirname: "/"}))
     .pipe(gulp.dest("./dist/"))
     .pipe(browserSync.stream());
 }
@@ -37,13 +20,23 @@ function compileJs() {
 function compileImg() {
   return gulp
     .src("./src/**/*.{png,jpg,gif,svg}")
-    .pipe(rename({ dirname: "/" }))
+    .pipe(rename({dirname: "/"}))
     .pipe(gulp.dest("./dist/"))
     .pipe(browserSync.stream());
 }
 
-// browser-sync
+function webpackDev() {
+  return webpack_stream(webpack_config)
+    .pipe(gulp.dest("./dist/"))
+    .pipe(browserSync.stream());
+}
+
+
+
+// browsersync
 function bsServe() {
+  watch();
+
   browserSync.init({
     server: {
       baseDir: "./dist",
@@ -54,26 +47,25 @@ function bsServe() {
     ghostMode: false
   });
 
-  gulp.watch("./src/**/*.mustache", compileTemplates);
-  gulp.watch("./src/**/*.html", compileTemplates);
-  gulp.watch("./src/**/*.scss", compileScss);
-  gulp.watch("./src/**/*.js", compileJs);
-  gulp.watch("./src/**/*.{png,jpg,gif,svg}", compileImg);
 }
 
-// gulp functions and exports
-// v - shared functions between 'Dev compile' and 'Dev serve'
-const compilersForDev = gulp.parallel(
-  compileTemplates,
-  compileScss,
-  compileJs,
-  compileImg
-);
+// watch
+function watch() {
+  gulp.watch("./src/**/*.{png, jpg, gif, svg}", compileImg);
+  gulp.watch("./src/**/*.mustache", compileTemplates);
+  gulp.watch("./src/**/*.html", compileTemplates);
+  gulp.watch("./src/**/*.scss", webpackDev);
+  gulp.watch("./src/**/*.js", webpackDev);
+}
 
-exports.compilersForProd = gulp.parallel(
-  compileJs,
-  compileTemplates,
-  compileImg
-);
-exports.compilersForDevCompile = compilersForDev;
-exports.compilersForDevServe = gulp.series(compilersForDev, bsServe);
+
+
+// exports
+
+// dev
+var devFunctions = gulp.parallel(compileTemplates, compileImg, webpackDev);
+exports.devCompile = devFunctions;
+exports.dev = gulp.parallel(devFunctions, bsServe);
+
+// production
+exports.prod = gulp.parallel(compileTemplates, compileImg);
