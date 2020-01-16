@@ -10,7 +10,7 @@ const webpack_config = require("./webpack.dev");
 // functions
 function compileTemplates() {
   return gulp
-    .src("./src/templates/**/*.html")
+    .src("./src/**/*.html")
     .pipe(mustache())
     .pipe(rename({dirname: "/"}))
     .pipe(gulp.dest("./dist/"))
