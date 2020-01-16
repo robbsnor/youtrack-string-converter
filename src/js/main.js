@@ -5,7 +5,7 @@ import $ from 'jquery';
 window.jQuery = $;
 window.$ = $;
 
-import './dev/dev.js';
+import './dev/dev';
 
 import "bootstrap";
 
