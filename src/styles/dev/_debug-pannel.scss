@@ -50,5 +50,6 @@ body.d_debug-pannel--open .d_debug-pannel {
     @include media-breakpoint-down(md) {content: "md";}
     @include media-breakpoint-down(sm) {content: "sm";}
     @include media-breakpoint-down(xs) {content: "xs";} 
+    @include media-breakpoint-down(xxs) {content: "xxs";} 
   }
 }

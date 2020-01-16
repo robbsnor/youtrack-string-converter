@@ -17,7 +17,7 @@ function deleteDist() {
 
 // dev
 exports.dev = gulp.series(deleteDist, dev.dev)
-exports.compile = dev.devCompile;
+exports.compile = gulp.series(deleteDist, dev.devCompile);
 
 // production
-exports.prod = gulp.series(deleteDist, gulp.series(prod.prod, dev.prod));
+exports.prod = gulp.series(deleteDist, gulp.series(dev.prod, prod.prod));
