@@ -59,7 +59,7 @@ function bsServe() {
 // dev
 var devFunctions = gulp.parallel(compileTemplates, compileImg, webpackDev);
 exports.devCompile = devFunctions;
-exports.dev = gulp.parallel(devFunctions, bsServe);
+exports.dev = gulp.series(devFunctions, bsServe);
 
 // production
 exports.prod = gulp.parallel(compileTemplates, compileTemplates, compileImg);
