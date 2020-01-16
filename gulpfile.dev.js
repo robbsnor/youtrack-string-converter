@@ -35,8 +35,6 @@ function webpackDev() {
 
 // browsersync
 function bsServe() {
-  watch();
-
   browserSync.init({
     server: {
       baseDir: "./dist",
@@ -47,10 +45,6 @@ function bsServe() {
     ghostMode: false
   });
 
-}
-
-// watch
-function watch() {
   gulp.watch("./src/**/*.{png, jpg, gif, svg}", compileImg);
   gulp.watch("./src/**/*.mustache", compileTemplates);
   gulp.watch("./src/**/*.html", compileTemplates);
@@ -68,4 +62,4 @@ exports.devCompile = devFunctions;
 exports.dev = gulp.parallel(devFunctions, bsServe);
 
 // production
-exports.prod = gulp.parallel(compileTemplates, compileImg);
+exports.prod = gulp.parallel(compileTemplates, compileTemplates, compileImg);

@@ -1,38 +1,8 @@
-var glob = require("glob");
-var path = require("path");
-var webpack = require("webpack");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const merge = require('webpack-merge');
+const common = require('./webpack.common.js');
 
 
 
-
-module.exports = {
-  mode: "development",
-  entry: {
-    main: "./src/js/main.js"
-  },
-  module: {
-    rules: [{
-      test: /\.s?css$/i,
-      use: [
-        MiniCssExtractPlugin.loader, // generate seperate css
-        {
-          loader: 'css-loader',
-          options: {
-            url: false // ignore images
-          }
-        },
-        'sass-loader' // load scss
-      ]
-    }]
-  },
-  output: {
-    path: path.join(__dirname, "./dist/"),
-    filename: "[name].js"
-  },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'all.css'
-    })
-  ],
-};
+module.exports = merge(common, {
+  mode: "development"
+});
