@@ -1,4 +1,4 @@
-// Debug pannel1
+// debug pannel
 function dPannelOpen() {
   $("body").addClass("d_debug-pannel--open");
   $(".d_debug-pannel").css({
@@ -23,11 +23,8 @@ function dPannelToggle() {
   }
 }
 
-// fire
-dPannelOpen();
-$(".d_debug-pannel-toggle").on("click", function() {
-  dPannelToggle();
-});
+
+
 
 // width and height indicator
 function setWHIndicators() {
@@ -38,15 +35,32 @@ function setWHIndicators() {
   $(".d_window-size-y .d_content").html(y);
 }
 
-// fire
-setWHIndicators();
 
-$(window).resize(function() {
-  setWHIndicators();
-});
 
 // window scroll top indicator
 $(window).scroll(function() {
   var wScroll = Math.round($(this).scrollTop());
   $(".d_window-scroll-y .d_content").html(wScroll);
+});
+
+
+
+
+// fire debug pannel
+dPannelOpen();
+$(".d_debug-pannel-toggle").on("click", function () {
+  dPannelToggle();
+});
+
+// fire size indicators
+setWHIndicators();
+$(window).resize(function () {
+  setWHIndicators();
+});
+
+// close debug pannel on mobile
+$(document).ready(function () {
+  if (window.innerWidth < 500) {
+    dPannelClose();
+  }
 });

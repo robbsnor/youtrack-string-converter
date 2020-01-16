@@ -28,20 +28,19 @@ body.d_debug-pannel--open .d_debug-pannel {
     justify-content: center;
     padding: 3px 10px;
 
+
+    &:nth-child(odd){
+      background-color: rgba(black, .2);
+    }
+
     .d_icon {
       margin-right: 10px;
     }
-    .d_content{
+    .d_content {
+      width: 40px;
     }
+  }
 
-    &--small {
-      min-width: 0;
-      padding: 3px 10px;
-    }
-  }
-  .d_window-scroll-y .d_content{
-    min-width: 42px;
-  }
 
   .d_bootstrap-bp .d_content:after {
     @include media-breakpoint-up(xl) {content: "> xl";}
@@ -51,5 +50,9 @@ body.d_debug-pannel--open .d_debug-pannel {
     @include media-breakpoint-down(sm) {content: "sm";}
     @include media-breakpoint-down(xs) {content: "xs";} 
     @include media-breakpoint-down(xxs) {content: "xxs";} 
+  }
+
+  .d_debug-pannel-toggle{
+    flex-shrink: 0;
   }
 }
