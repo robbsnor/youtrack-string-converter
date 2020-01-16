@@ -1,3 +1,4 @@
+const webpack = require("webpack");
 const path = require("path");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -29,12 +30,16 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'all.css'
-		})
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    })
   ],
   optimization: {
     splitChunks: {
       // include all types of chunks
       chunks: 'all'
     }
-	}	
+  }
 };
