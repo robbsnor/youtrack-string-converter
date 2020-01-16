@@ -5,7 +5,10 @@ import jQuery from "jquery";
 window.$ = window.jQuery = jQuery;
 
 import "bootstrap";
-import "@fortawesome/fontawesome-free/js/all.min.js";
+
+// import '@fortawesome/fontawesome-free/js/fontawesome'
+// import '@fortawesome/fontawesome-free/js/solid'
+// import '@fortawesome/fontawesome-free/js/brands'
 
 console.log('main')
 console.log($('#dough'))
