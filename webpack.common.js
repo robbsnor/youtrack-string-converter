@@ -1,5 +1,4 @@
-var webpack = require("webpack");
-var path = require("path");
+const path = require("path");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
@@ -30,16 +29,12 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'all.css'
-		}),
-		new webpack.SourceMapDevToolPlugin({
-			filename: '[file].map',
-			exclude: 'main.js.map'
 		})
   ],
   optimization: {
     splitChunks: {
       // include all types of chunks
-      // chunks: 'all'
+      chunks: 'all'
     }
 	}	
 };

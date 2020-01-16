@@ -10,6 +10,4 @@ import "bootstrap";
 // import '@fortawesome/fontawesome-free/js/solid'
 // import '@fortawesome/fontawesome-free/js/brands'
 
-console.log('main')
-console.log($('#dough'))
-console.log($('body'))
+console.log('bobba')
