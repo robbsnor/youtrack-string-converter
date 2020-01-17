@@ -6,18 +6,19 @@ const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
 const mustache = require('gulp-mustache');
 
-const webpack_stream = require("webpack-stream");
-const webpack_config = require("./webpack.dev");
+const webpack = require('webpack-stream');
+const webpackConfig = require('./webpack.dev');
+
+var moveFileTypes = 'png,jpg,gif,svg,php,pdf';
 
 
 
 // functions
 function compileTemplates() {
-  return gulp
-    .src("./src/**/*.html")
+  return gulp.src('./src/**/*.html')
     .pipe(mustache())
-    .pipe(rename({dirname: "/"}))
-    .pipe(gulp.dest("./dist/"))
+    .pipe(rename({dirname: '/'}))
+    .pipe(gulp.dest('./dist/'))
     .pipe(browserSync.stream());
 }
 
@@ -26,23 +27,20 @@ function compileScss() {
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     // .pipe(autoprefixer())
-    .pipe(rename({dirname: '/'}))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('./dist/'))
     .pipe(browserSync.stream());
 }
 
 function moveFiles() {
-  return gulp
-    .src("./src/**/*.{png,jpg,gif,svg,php,pdf}")
-    .pipe(rename({dirname: "/"}))
-    .pipe(gulp.dest("./dist/"))
+  return gulp.src('./src/**/*.{' + moveFileTypes + '}')
+    .pipe(gulp.dest('./dist/'))
     .pipe(browserSync.stream());
 }
 
 function webpackDev() {
-  return webpack_stream(webpack_config)
-    .pipe(gulp.dest("./dist/"))
+  return webpack(webpackConfig)
+    .pipe(gulp.dest('./dist/js/'))
     .pipe(browserSync.stream());
 }
 
@@ -52,20 +50,20 @@ function webpackDev() {
 function bsServe() {
   browserSync.init({
     server: {
-      baseDir: "./dist",
-      index: "/index.html"
+      baseDir: './dist',
+      index: '/index.html'
     },
-    open: "external",
+    open: 'external',
     notify: false,
     ghostMode: false
   });
 
-  gulp.watch("./src/**/*.{png,jpg,gif,svg,php,pdf}", moveFiles);
-  gulp.watch("./src/**/*.mustache", compileTemplates);
-  gulp.watch("./src/**/*.html", compileTemplates);
-  gulp.watch("./src/**/*.scss", compileScss);
-  gulp.watch("./src/**/*.js", webpackDev);
-  gulp.watch("./src/**/*.json", webpackDev);
+  gulp.watch('./src/**/*.{' + moveFileTypes + '}', moveFiles);
+  gulp.watch('./src/**/*.mustache', compileTemplates);
+  gulp.watch('./src/**/*.html', compileTemplates);
+  gulp.watch('./src/**/*.scss', compileScss);
+  gulp.watch('./src/**/*.js', webpackDev);
+  gulp.watch('./src/**/*.json', webpackDev);
 }
 
 
