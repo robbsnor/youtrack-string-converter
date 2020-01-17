@@ -26,11 +26,11 @@ body.d_debug-grid-overlay--show {
   z-index: 700;
 
   .container{
-    background-color: rgba(pink, 0.1);
+    background-color: rgba(pink, .15);
   }
 
   .the-col {
     height: 100vh;
-    background-color: rgba(pink, 0.2);
+    background-color: rgba(pink, .2);
   }
 }
