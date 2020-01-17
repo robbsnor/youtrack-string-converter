@@ -1,7 +1,10 @@
 const gulp = require('gulp');
-const rename = require("gulp-rename");
-const browserSync = require("browser-sync").create();
-const mustache = require("gulp-mustache");
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
+const rename = require('gulp-rename');
+const browserSync = require('browser-sync').create();
+const mustache = require('gulp-mustache');
+
 const webpack_stream = require("webpack-stream");
 const webpack_config = require("./webpack.dev");
 
@@ -14,6 +17,17 @@ function compileTemplates() {
     .pipe(mustache())
     .pipe(rename({dirname: "/"}))
     .pipe(gulp.dest("./dist/"))
+    .pipe(browserSync.stream());
+}
+
+function compileScss() {
+  return gulp.src('./src/**/*.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    // .pipe(autoprefixer())
+    .pipe(rename({dirname: '/'}))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('./dist'))
     .pipe(browserSync.stream());
 }
 
@@ -48,7 +62,7 @@ function bsServe() {
   gulp.watch("./src/**/*.{png, jpg, gif, svg}", compileImg);
   gulp.watch("./src/**/*.mustache", compileTemplates);
   gulp.watch("./src/**/*.html", compileTemplates);
-  gulp.watch("./src/**/*.scss", webpackDev);
+  gulp.watch("./src/**/*.scss", compileScss);
   gulp.watch("./src/**/*.js", webpackDev);
 }
 
@@ -57,7 +71,7 @@ function bsServe() {
 // exports
 
 // dev
-var devFunctions = gulp.parallel(compileTemplates, compileImg, webpackDev);
+var devFunctions = gulp.parallel(compileTemplates, compileScss, compileImg, webpackDev);
 exports.devCompile = devFunctions;
 exports.dev = gulp.series(devFunctions, bsServe);
 

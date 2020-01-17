@@ -21,7 +21,8 @@ body.d_debug-grid-overlay--show {
   position: fixed;
   top: 100%;
   width: 100%;
-
+  
+  pointer-events: none;
   z-index: 700;
 
   .container{
