@@ -4,13 +4,13 @@ npm i
 ```
 
 ## Run dev server
-Runs a browsersync dev server, served from the *build* folder.
+Runs a browsersync dev server, served from the *dist* folder.
 ```
 npm run start
 ```
 
 ## Recompile dev files
-Recompiles the *build* folder without browsersync.
+Recompiles the *dist* folder without browsersync.
 ```
 npm run compile
 ```
