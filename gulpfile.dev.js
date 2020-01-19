@@ -9,7 +9,7 @@ const mustache = require('gulp-mustache');
 const webpack = require('webpack-stream');
 const webpackConfig = require('./webpack.dev');
 
-var moveFileTypes = 'png,jpg,gif,svg,php,pdf';
+const moveFileTypes = 'png,jpg,gif,svg,php,pdf';
 
 
 
