@@ -9,7 +9,8 @@ const webpackConfig = require("./webpack.prod");
 
 
 // functions
-function compileScss() {
+module.exports.scss = function () {
+  console.log('scss');
   return gulp.src('./src/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
@@ -18,12 +19,8 @@ function compileScss() {
     .pipe(gulp.dest('./dist'))
 }
 
-function webpackProd() {
+module.exports.webpack = function () {
+  console.log('webpack');
   return webpack(webpackConfig)
     .pipe(gulp.dest("./dist/js/"));
 }
-
-
-
-// exports
-exports.prod = gulp.parallel(compileScss, webpackProd);
