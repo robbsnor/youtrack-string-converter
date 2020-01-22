@@ -56,4 +56,4 @@ function bsServe () {
 exports.start     = gulp.series(deleteDist, gulp.parallel(compileTemplates, dev.scss, dev.webpack, moveFiles), bsServe);
 exports.compile   = gulp.series(deleteDist, gulp.parallel(compileTemplates, dev.scss, dev.webpack, moveFiles));
 
-exports.prod      = gulp.series(deleteDist, gul.parallel(compileTemplates, prod.scss, prod.webpack, moveFiles));
+exports.prod      = gulp.series(deleteDist, gulp.parallel(compileTemplates, prod.scss, prod.webpack, moveFiles));
