@@ -10,7 +10,7 @@ const webpackConfig = require('./webpack.dev');
 
 
 // functions
-module.exports.scss = function () {
+module.exports.compileScss = function () {
   console.log('scss');
   return gulp.src('./src/**/*.scss')
     .pipe(sourcemaps.init())
@@ -21,7 +21,7 @@ module.exports.scss = function () {
     .pipe(browserSync.stream());
 }
 
-module.exports.webpack = function () {
+module.exports.compileWebpack = function () {
   console.log('webpack');
   return webpack(webpackConfig)
     .pipe(gulp.dest('./dist/js/'))

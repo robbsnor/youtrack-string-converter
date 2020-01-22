@@ -46,14 +46,14 @@ function bsServe () {
   gulp.watch('./src/**/*.mustache', compileTemplates);
   gulp.watch('./src/**/*.html', compileTemplates);
   gulp.watch('./src/**/*.scss', dev.compileScss);
-  gulp.watch('./src/**/*.js', dev.webpack);
-  gulp.watch('./src/**/*.json', dev.webpack);
+  gulp.watch('./src/**/*.js', dev.compileWebpack);
+  gulp.watch('./src/**/*.json', dev.compileWebpack);
 }
 
 
 
 // register tasks
-exports.start     = gulp.series(deleteDist, gulp.parallel(compileTemplates, dev.scss, dev.webpack, moveFiles), bsServe);
-exports.compile   = gulp.series(deleteDist, gulp.parallel(compileTemplates, dev.scss, dev.webpack, moveFiles));
+exports.start     = gulp.series(deleteDist, gulp.parallel(compileTemplates, dev.compileScss, dev.compileWebpack, moveFiles), bsServe);
+exports.compile   = gulp.series(deleteDist, gulp.parallel(compileTemplates, dev.compileScss, dev.compileWebpack, moveFiles));
 
 exports.prod      = gulp.series(deleteDist, gulp.parallel(compileTemplates, prod.scss, prod.webpack, moveFiles));
