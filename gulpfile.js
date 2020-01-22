@@ -5,10 +5,10 @@ const mustache = require('gulp-mustache');
 const browserSync = require('browser-sync').create('bsServer');
 
 // vars
-const moveFileTypes = 'png,jpg,gif,svg,php,pdf';
-
 const dev = require('./gulpfile.dev').functions;
 const prod = require('./gulpfile.prod').functions;
+
+const justMoveFileTypes = 'png,jpg,gif,svg,php,pdf';
 
 
 
@@ -21,7 +21,7 @@ function compileTemplates () {
 }
 
 function moveFiles () {
-  return gulp.src('./src/**/*.{' + moveFileTypes + '}')
+  return gulp.src('./src/**/*.{' + justMoveFileTypes + '}')
     .pipe(gulp.dest('./dist/'))
     .pipe(browserSync.stream());
 }
@@ -44,7 +44,7 @@ function bsServe () {
     ghostMode: false
   });
 
-  gulp.watch('./src/**/*.{' + moveFileTypes + '}', moveFiles);
+  gulp.watch('./src/**/*.{' + justMoveFileTypes + '}', moveFiles);
   gulp.watch('./src/**/*.mustache', compileTemplates);
   gulp.watch('./src/**/*.html', compileTemplates);
   gulp.watch('./src/**/*.scss', dev.compileScss);
