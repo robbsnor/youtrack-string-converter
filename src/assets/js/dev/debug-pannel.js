@@ -72,7 +72,7 @@ $(document).ready(function () {
 
 // load frontend html
 $('body').append(`
-  <div class="d_debug-pannel" style="display: none">
+  <div class="d_debug-pannel">
     <div class="item d_bootstrap-bp">
         <div class="d_icon"><i class="fab fa-bootstrap"></i></div>
         <div class="d_content"></div>
@@ -97,7 +97,7 @@ $('body').append(`
     </div>
     </div>
 
-    <div class="d_debug-grid-overlay" style="display: none">
+    <div class="d_debug-grid-overlay">
     <div class="container">
         <div class="row">
             <div class="col"><div class="the-col"></div></div>

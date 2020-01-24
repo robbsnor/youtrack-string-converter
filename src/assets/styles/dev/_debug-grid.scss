@@ -12,15 +12,17 @@
 
 body.d_debug-grid-overlay--show {
   .d_debug-grid-overlay {
-    top: 0;
+    display: block;
   }
 }
 .d_debug-grid-overlay {
-  display: block !important;
+  display: none;
   
   position: fixed;
-  top: 100%;
-  width: 100%;
+  top: -100px;
+  right: 0;
+  bottom: -100px;
+  left: 0;
   
   pointer-events: none;
   z-index: 700;
@@ -30,7 +32,7 @@ body.d_debug-grid-overlay--show {
   }
 
   .the-col {
-    height: 100vh;
+    height: 150vh;
     background-color: rgba(pink, .2);
   }
 }
