@@ -12,7 +12,7 @@ const webpackProd = require('./webpack.prod');
 
 // dev tasks
 function compileScss () {
-  return gulp.src('./src/**/*.scss')
+  return gulp.src('./src/**/main.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(sass({outputStyle: 'compressed'}))

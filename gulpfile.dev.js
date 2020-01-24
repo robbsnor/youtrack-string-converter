@@ -13,7 +13,7 @@ const webpackDev = require('./webpack.dev');
 
 // dev tasks
 function compileScss() {
-  return gulp.src('./src/**/*.scss')
+  return gulp.src('./src/**/main.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     // .pipe(autoprefixer())
