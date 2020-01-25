@@ -10,8 +10,8 @@ image: node:latest
 
 stages:
   - prep
-  # - build
-  # - deploy
+  - build
+  - deploy
 
 
 prep:
@@ -26,21 +26,21 @@ prep:
     - master
 
 
-# build:
-#   stage: build
-#   script:
-#     - npm run prod
-#   artifacts:
-#     paths:
-#       - dist
-#   only:
-#     - master
+build:
+  stage: build
+  script:
+    - npm run prod
+  artifacts:
+    paths:
+      - dist
+  only:
+    - master
 
 
-# staging:
-#   stage: deploy
-#   script:
-#     - cd dist
-#     - ls
-#   only: 
-#     - master
+deploy:
+  stage: deploy
+  script:
+    - cd dist
+    - ls
+  only: 
+    - master
