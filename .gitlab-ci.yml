@@ -1,0 +1,11 @@
+pages:
+  cache:
+    paths:
+    - node_modules/
+  script:
+  - npm i
+  artifacts:
+    paths:
+    - dist
+  only:
+  - master
