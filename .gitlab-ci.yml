@@ -15,14 +15,13 @@ stages:
 prep:
   stage: prep
   script:
-    - node -v
-    - npm -v
+    - npm install
+  artifacts:
+    paths:
+      - node_modules
   cache:
     paths:
       - node_modules
-  artifacts:
-    paths:
-      - dist
   only:
     - master
 
@@ -31,14 +30,17 @@ build:
   stage: build
   script:
     - npm run prod
+  artifacts:
+    paths:
+      - dist
   only:
     - master
 
 
-deploy:
+staging:
   stage: deploy
   script:
     - cd dist
     - ls
-  only:
+  only: 
     - master
