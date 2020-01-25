@@ -41,5 +41,8 @@ deploy:
   script:
     - cd dist
     - ls
+  artifacts:
+    paths:
+      - dist
   only:
     - master
