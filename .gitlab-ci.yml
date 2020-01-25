@@ -10,18 +10,15 @@ before_script:
 
 stages:
   - prep
-  - build
-  - deploy
+  # - build
+  # - deploy
 
 
 prep:
   stage: prep
   script:
-    - rm * -r
-    - npm install
-  artifacts:
-    paths:
-      - node_modules
+    - ls
+    # - npm install
   cache:
     paths:
       - node_modules
