@@ -20,6 +20,9 @@ prep:
   cache:
     paths:
       - node_modules
+  artifacts:
+    paths:
+      - dist
   only:
     - master
 
