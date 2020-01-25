@@ -27,6 +27,7 @@ function compileWebpack () {
 }
 
 function gitLabPages () {
+  console.log('gitLabPages')
   return gulp.src('./dist/**/*')
     .pipe(ghPages());
 }
