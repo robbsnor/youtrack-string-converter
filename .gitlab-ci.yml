@@ -3,11 +3,13 @@ image: node:latest
 before_script:
   - node -v
   - npm -v
-  - apt-get update -qq && apt-get install -y -qq sshpass
+  - apt-get update -qq && apt-get install -y -qq
 
 stages:
   - prep
   - build
+  - deploy
+
 
 prep:
   stage: prep
@@ -20,8 +22,8 @@ prep:
     paths:
       - node_modules
   only:
-    - dev
     - master
+
 
 build:
   stage: build
@@ -30,5 +32,22 @@ build:
   artifacts:
     paths:
       - dist
+  only:
+    - master
+
+staging:
+  stage: deploy
+  script:
+    - cd dist
+    - ls
+  only: 
+    - master
+    
+
+deploy:
+  stage: deploy
+  script:
+    - cd dist
+    - ls
   only:
     - master
