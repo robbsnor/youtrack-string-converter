@@ -35,14 +35,6 @@ build:
   only:
     - master
 
-staging:
-  stage: deploy
-  script:
-    - cd dist
-    - ls
-  only: 
-    - master
-    
 
 deploy:
   stage: deploy
