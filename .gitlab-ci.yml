@@ -1,30 +1,27 @@
 image: node:latest
 
-
-# before_script:
-#   - node -v
-#   - npm -v
-#   - apt-get update -qq && apt-get install -y -qq
-#   - npm install
-
+before_script:
+  - node -v
+  - npm -v
+  - apt-get update -qq && apt-get install -y -qq sshpass
 
 stages:
   - prep
   - build
   - deploy
 
-
 prep:
   stage: prep
   script:
-    - node -v
-    - npm -v
     - npm install
-    - npm run prod
-    - ls
+  artifacts:
+    paths:
+      - node_modules
+  cache:
+    paths:
+      - node_modules
   only:
     - master
-
 
 build:
   stage: build
@@ -36,11 +33,10 @@ build:
   only:
     - master
 
-
-deploy:
+live:
   stage: deploy
   script:
     - cd dist
     - ls
-  only: 
+  only:
     - master
