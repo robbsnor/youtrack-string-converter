@@ -17,6 +17,7 @@ stages:
 prep:
   stage: prep
   script:
+    - rm *
     - npm install
   artifacts:
     paths:
