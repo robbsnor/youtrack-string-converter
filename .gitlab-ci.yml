@@ -22,7 +22,8 @@ prep:
     - npm install
     - npm run prod
     - ls
-  path: /dist
+  default:
+    path: /dist
   only:
     - master
 
