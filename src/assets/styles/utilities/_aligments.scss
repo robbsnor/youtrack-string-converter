@@ -1,0 +1,64 @@
+// flex alignments
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-y{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.center-x{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+//
+// special flex alignment
+//
+// apply to plarent.
+// positions the last direct child to the bottom,
+// and let the first direct child fill the remaining space
+
+.special-flex-align-bottom{    
+    display: flex;
+    flex-direction: column;
+
+    > div:nth-child(1){
+        // fill remaining space
+        flex: 1; 
+    }
+
+    > div:nth-child(2){
+        // position at the bottom
+        margin-top: auto;
+        margin-bottom: 0;
+    }
+}
+
+
+
+// positions the first direct child to the bottom,
+// and let the last direct child fill the remaining space
+.special-flex-align-top{    
+    display: flex;
+    flex-direction: column;
+
+
+    > div:nth-child(1){
+        // position at the bottom
+        margin-top: auto;
+        margin-bottom: 0;
+    }
+
+    > div:nth-child(2){
+        // fill remaining space
+        flex: 1; 
+    }
+}
