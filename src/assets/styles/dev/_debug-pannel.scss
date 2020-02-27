@@ -29,13 +29,14 @@ body.d_debug-pannel--open .d_debug-pannel {
     padding: 3px 10px;
 
 
-    &:nth-child(odd){
+    &:nth-child(odd) {
       background-color: rgba(black, .2);
     }
 
     .d_icon {
       margin-right: 10px;
     }
+
     .d_content {
       width: 40px;
     }
@@ -43,16 +44,12 @@ body.d_debug-pannel--open .d_debug-pannel {
 
 
   .d_bootstrap-bp .d_content:after {
-    @include media-breakpoint-up(xl) {content: "> xl";}
-    @include media-breakpoint-down(xl) {content: "xl";}
-    @include media-breakpoint-down(lg) {content: "lg";}
-    @include media-breakpoint-down(md) {content: "md";}
-    @include media-breakpoint-down(sm) {content: "sm";}
-    @include media-breakpoint-down(xs) {content: "xs";} 
-    @include media-breakpoint-down(xxs) {content: "xxs";} 
+    @each $breakpointSize, $breakpointVal in $grid-breakpoints {
+      @include media-breakpoint-up($breakpointSize) {content: "#{$breakpointSize}";}
+    }
   }
 
-  .d_debug-pannel-toggle{
+  .d_debug-pannel-toggle {
     flex-shrink: 0;
   }
 }
