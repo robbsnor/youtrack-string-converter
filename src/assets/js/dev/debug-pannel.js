@@ -74,26 +74,26 @@ $(document).ready(function () {
 $('body').append(`
   <div class="d_debug-pannel">
     <div class="item d_bootstrap-bp">
-        <div class="d_icon"><i class="fab fa-bootstrap"></i></div>
+        <div class="d_icon"></div>
         <div class="d_content"></div>
     </div>
     <div class="item d_window-size-x">
-        <div class="d_icon"><i class="fas fa-arrows-alt-h"></i></i></div>
+        <div class="d_icon"></div>
         <div class="d_content"></div>
     </div>
     <div class="item d_window-size-y">
-        <div class="d_icon"><i class="fas fa-arrows-alt-v"></i></div>
+        <div class="d_icon"></div>
         <div class="d_content"></div>
     </div>
     <div class="item d_window-scroll-y">
-        <div class="d_icon"><i class="fas fa-swimming-pool"></i></div>
+        <div class="d_icon"></div>
         <div class="d_content">-</div>
     </div>
     <div class="item d_debug-grid-overlay-toggle c-p">
-        <div class="d_icon m-0"><i class="fas fa-grip-lines-vertical"></i><i class="fas fa-grip-lines-vertical"></i></div>
+        <div class="d_icon m-0"><i class="material-icons-round">view_week</i></div>
     </div>
     <div class="item d_debug-pannel-toggle c-p">
-        <div class="d_icon m-0"><i class="fas fa-chevron-right"></i></div>
+        <div class="d_icon m-0"><i class="material-icons-round">chevron_right</i></div>
     </div>
     </div>
 
