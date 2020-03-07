@@ -10,13 +10,11 @@
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",
-    "front-end-debug": "^1.0.2",
+    "front-end-debug": "^1.0.12",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^4.2.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-gh-pages": "^0.5.4",
     "gulp-mustache": "^4.1.2",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
@@ -28,7 +26,6 @@
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.12.0",
     "bootstrap": "^4.4.1"
   }
 }
