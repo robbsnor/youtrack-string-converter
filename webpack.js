@@ -1,25 +1,14 @@
-const path = require('path');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const path = require("path");
 
 module.exports = {
   entry: {
-    main: './src/assets/js/main.js',
+    main: "./src/assets/js/main.js"
   },
   output: {
-    path: path.join(__dirname, './dist/'),
-    filename: '[name].js',
+    path: path.join(__dirname, "./dist/"),
+    filename: "[name].js"
   },
   externals: {
-    jquery: 'jQuery',
-  },
-  module: {
-    rules: [
-      {test: /\.vue$/, use: 'vue-loader'},
-      {
-        test: /\.scss$/,
-        use: ['vue-style-loader', 'css-loader', 'sass-loader'],
-      },
-    ],
-  },
-  plugins: [new VueLoaderPlugin()],
+    jquery: 'jQuery'
+  }
 };
