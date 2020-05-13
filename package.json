@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",
-    "front-end-debug": "^1.1.7",
+    "front-end-debug": "^1.1.13",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-clean": "^0.4.0",
