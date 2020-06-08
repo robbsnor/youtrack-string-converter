@@ -1,7 +1,9 @@
-## Starting template for websites
+# Starting template for websites
 * Bootstrap
 * Material icons
 * Front end debugger
+
+# Getting started
 
 ## Install
 ```
