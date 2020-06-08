@@ -1,3 +1,8 @@
+## Starting template for websites
+* Bootstrap
+* Material icons
+* Front end debugger
+
 ## Install
 ```
 npm i
