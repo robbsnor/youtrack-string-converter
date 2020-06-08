@@ -10,22 +10,22 @@
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",
-    "front-end-debug": "^1.1.13",
+    "front-end-debug": "^1.1.17",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-clean": "^0.4.0",
-    "gulp-clean-css": "^4.2.0",
+    "gulp-clean-css": "^4.3.0",
     "gulp-mustache": "^4.1.2",
     "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.2",
+    "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
+    "webpack-cli": "^3.3.11",
     "webpack-merge": "^4.2.2",
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
-    "bootstrap": "^4.4.1"
+    "bootstrap": "^4.5.0"
   }
 }
