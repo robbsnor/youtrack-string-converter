@@ -1,3 +1,3 @@
-@include gridClassify(margin, false)
-@include gridClassify(margin, true)
-@include gridClassify(padding, false)
+// @include breakpointify(margin, false);
+// @include breakpointify(margin, true);
+@include breakpointify(padding, false);

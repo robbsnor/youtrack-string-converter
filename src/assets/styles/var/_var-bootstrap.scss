@@ -1,27 +1,60 @@
-
 // transition
 $transition-base: .3s;
 
 
+
 // font
-$font-size-base: 1.125rem; // 18px
+// $font-size-base: 1.125rem; // 18px
+// $font-size-base: 0.875rem; // 14px
+
 
 
 // grid
 // they are the default values, but with a an optional xxl
-$grid-breakpoints: (
-  xs: 0,
+$grid-gutter-width: 30px;
+
+$grid-breakpoints: (xs: 0,
   sm: 576px,
   md: 768px,
   lg: 992px,
   xl: 1200px,
-  xxl: 1500px
-);
+  xxl: 1500px);
 
-$container-max-widths: (
-  sm: 576px,
+$container-max-widths: (sm: 576px,
   md: 720px,
   lg: 960px,
   xl: 1140px,
-  xxl: 1440px
+  xxl: 1440px);
+
+
+
+// spacers
+$spacer: 1rem;
+
+$spacers: (0: 0,
+  1: $spacer / 4,
+  2: $spacer / 2,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+
+  13: $grid-gutter-width / 4,
+  14: $grid-gutter-width / 2,
+  15: $grid-gutter-width,
+  16: $grid-gutter-width * 2,
+  17: $grid-gutter-width * 3,
+  18: $grid-gutter-width * 4,
+  19: $grid-gutter-width * 5,
+
+  // 30: 0,
+  // 31: 10 * 1,
+  // 32: 10 * 2,
+  // 33: 10 * 3,
+  // 34: 10 * 4,
+  // 35: 10 * 5,
+  // 36: 10 * 6,
+  // 37: 10 * 7,
+  // 38: 10 * 8,
+  // 39: 10 * 9,
+  // 40: 10 * 10
 );
