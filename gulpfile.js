@@ -12,7 +12,11 @@ const justMoveFileTypes = "png,jpg,gif,svg,php,pdf,ico";
 
 // shared tasks
 function compileTemplates() {
-  return gulp.src("./src/**/*.html").pipe(mustache()).pipe(gulp.dest("./dist/")).pipe(browserSync.stream());
+  return gulp
+    .src("./src/**/*.html")
+    .pipe(mustache())
+    .pipe(gulp.dest("./dist/"))
+    .pipe(browserSync.stream());
 }
 
 function moveFiles() {
@@ -48,10 +52,26 @@ function bsServe() {
 
 // register tasks
 // dev
-const devCompile = gulp.series(deleteDist, gulp.parallel(compileTemplates, dev.compileScss, dev.compileWebpack, moveFiles));
+const devCompile = gulp.series(
+  deleteDist,
+  gulp.parallel(
+    compileTemplates,
+    dev.compileScss,
+    dev.compileWebpack,
+    moveFiles
+  )
+);
 
 exports.start = gulp.series(devCompile, bsServe);
 exports.compile = devCompile;
 
 // prod
-exports.prod = gulp.series(deleteDist, gulp.parallel(compileTemplates, prod.compileScss, prod.compileWebpack, moveFiles));
+exports.prod = gulp.series(
+  deleteDist,
+  gulp.parallel(
+    compileTemplates,
+    prod.compileScss,
+    prod.compileWebpack,
+    moveFiles
+  )
+);
