@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "gulp start",
+    "dev": "gulp dev",
     "compile": "gulp compile",
     "prod": "gulp prod"
   },

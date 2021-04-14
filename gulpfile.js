@@ -62,9 +62,6 @@ const devCompile = gulp.series(
   )
 );
 
-exports.start = gulp.series(devCompile, bsServe);
-exports.compile = devCompile;
-
 // prod
 exports.prod = gulp.series(
   deleteDist,
@@ -75,3 +72,6 @@ exports.prod = gulp.series(
     moveFiles
   )
 );
+
+exports.dev = gulp.series(devCompile, bsServe);
+exports.compile = devCompile;
