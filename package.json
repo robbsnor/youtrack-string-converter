@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "gulp dev",
+    "start": "gulp start",
     "compile": "gulp compile",
     "prod": "gulp prod"
   },
@@ -9,7 +9,7 @@
     "url": "git+ssh://git@gitlab.com/robbsnor/dough.git"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.26.14",
     "front-end-debug": "^1.1.22",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
@@ -26,6 +26,6 @@
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
-    "bootstrap": "^4.5.0"
+    "normalize.css": "^8.0.1"
   }
 }

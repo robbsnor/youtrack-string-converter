@@ -73,5 +73,5 @@ exports.prod = gulp.series(
   )
 );
 
-exports.dev = gulp.series(devCompile, bsServe);
+exports.start = gulp.series(devCompile, bsServe);
 exports.compile = devCompile;
