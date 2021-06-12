@@ -2,11 +2,24 @@ import Spotify from 'spotify-web-api-js';
 
 const spotifyApi = new Spotify();
 const accessToken = getHashValue('access_token');
+var isLoggedin = false;
+
+if (accessToken) {
+    isLoggedin = true;
+
+    console.log('is logged in');
+    document.body.classList.add('logged-in');
+}
+
+
+var userImage = null
+var userName = null
 
 spotifyApi.setAccessToken(accessToken);
 
 // ===
 
+if (isLoggedin) {
 // elvis
 // spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err, data) {
 //     if (err) console.error(err);
@@ -14,17 +27,19 @@ spotifyApi.setAccessToken(accessToken);
 //   });
 
 
-spotifyApi.getMe({}, function(err, user){
-    if (err) console.error(err);
-    else {
-        console.log(user);
-        const userImage = user.images[0].url;
-        const userName = user.display_name;
 
-        document.getElementById('userimage').src = userImage
-        document.getElementById('username').innerHTML = userName
-    }
-})
+    spotifyApi.getMe({}, function(err, user){
+        if (err) console.error(err);
+        else {
+            console.log(user);
+            userImage = user.images[0].url;
+            userName = user.display_name;
+
+            document.getElementById('userimage').src = userImage
+            document.getElementById('username').innerHTML = userName
+        }
+    })
+}
 
 
 

@@ -1,25 +1,27 @@
-.profile {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    background: #202020;
-    border-radius: 5px;
-    border: solid #303030 1px;
-    padding: 10px 20px;
+.logged-in {
+    
+    .profile {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        background: #202020;
+        border-radius: 5px;
+        border: solid #303030 1px;
+        padding: 10px 20px;
 
-    &__avatar {
-        height: 60px;
-        border-radius: 100%;
-        margin-left: 20px;
+        &__avatar {
+            height: 30px;
+            border-radius: 100%;
+            margin-left: 20px;
+        }
+
+        &__name {
+            line-height: 1;
+            font-weight: 900;
+        }
+
     }
-
-    &__name {
-        line-height: 1;
-        font-weight: 900;
-    }
-
 }
-
 // padding: 16px 48px 18px;
