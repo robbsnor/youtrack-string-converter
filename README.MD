@@ -1,5 +1,3 @@
-# Starting template for websites
-
 # Getting started
 
 ## Install
