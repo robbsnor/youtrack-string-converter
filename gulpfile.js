@@ -59,8 +59,8 @@ function bsServe() {
       baseDir: './dist',
       index: '/index.html',
     },
-    // open: 'external',
-    open: false,
+    open: 'external',
+    // open: false,
     notify: false,
     ghostMode: false,
   });
