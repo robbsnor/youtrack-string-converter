@@ -22,3 +22,8 @@ Run when ready for production. Re-generates the *dist* folder with minified file
 ```
 npm run prod
 ```
+
+<br />
+
+# Footnotes
+- Uses Node 14
