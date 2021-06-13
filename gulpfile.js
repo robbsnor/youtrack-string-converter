@@ -11,10 +11,10 @@ const prod = require('./gulpfile.prod').functions;
 const justMoveFileTypes = 'jpg,png,gif,svg,php,pdf,ico,mp3';
 
 const nodeFiles = [
-  {
-    src: './node_modules/photoswipe/src/css/default-skin/default-skin.png',
-    dest: './dist/assets/img/photoswipe'
-  }
+  // {
+  //   src: './node_modules/photoswipe/src/css/default-skin/default-skin.png',
+  //   dest: './dist/assets/img/photoswipe'
+  // }
 ]
 
 
@@ -59,8 +59,8 @@ function bsServe() {
       baseDir: './dist',
       index: '/index.html',
     },
-    // open: 'external',
-    open: false,
+    open: 'external',
+    // open: false,
     notify: false,
     ghostMode: false,
   });

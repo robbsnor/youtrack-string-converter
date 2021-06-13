@@ -1,4 +1,5 @@
-@import 'var';
+@import 'var/var';
 @import 'vendors';
-@import 'utilities/utilities';
+@import 'base/base';
+@import 'layouts/layouts';
 @import 'components/components';
