@@ -1,13 +1,10 @@
 // gulp
 const gulp = require('gulp');
 const sass = require('gulp-sass');
+const ts = require('gulp-typescript');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync').get('bsServer');
-
-// webpack
-const webpack = require('webpack-stream');
-const webpackDev = require('./webpack.dev');
 
 
 
@@ -22,13 +19,14 @@ function compileScss() {
     .pipe(browserSync.stream());
 }
 
-function compileWebpack() {
-  return webpack(webpackDev)
-    .pipe(gulp.dest('./dist/assets/js'))
+function compileTs() {
+  return gulp.src('./src/assets/ts/main.ts')
+    .pipe(ts({outFile: 'main.js'}))
+    .pipe(gulp.dest('./dist/assets/js/'))
     .pipe(browserSync.stream());
 }
 
 
 
 // exports
-module.exports.functions = { compileScss, compileWebpack }
+module.exports.functions = { compileScss, compileTs }

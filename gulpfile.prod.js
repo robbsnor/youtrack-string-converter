@@ -1,12 +1,10 @@
 // gulp
 const gulp = require('gulp');
 const sass = require('gulp-sass');
+const uglify = require('gulp-uglify');
+const ts = require('gulp-typescript');
 const cleanCSS = require('gulp-clean-css');
 const autoprefixer = require('gulp-autoprefixer');
-
-// webpack
-const webpack = require('webpack-stream');
-const webpackProd = require('./webpack.prod');
 
 
 
@@ -20,12 +18,14 @@ function compileScss () {
     .pipe(gulp.dest('./dist'))
 }
 
-function compileWebpack () {
-  return webpack(webpackProd)
-    .pipe(gulp.dest('./dist/assets/js'));
+function compileTs () {
+  return gulp.src('./src/assets/ts/main.ts')
+    .pipe(ts({outFile: 'main.js'}))
+    .pipe(uglify())
+    .pipe(gulp.dest('./dist/assets/js/'))
 }
 
 
 
 // exports
-module.exports.functions = { compileScss, compileWebpack }
+module.exports.functions = { compileScss, compileTs }
