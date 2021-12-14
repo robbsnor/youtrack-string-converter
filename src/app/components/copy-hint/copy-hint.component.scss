@@ -1,0 +1,23 @@
+.copy-hint {
+    position: relative;
+    text-align: center;
+    width: 500px;
+    opacity: .5;
+
+    &__text {
+        color: white;
+    }
+
+    &__arrow {
+        position: absolute;
+        left: 120px;
+        fill: white;
+        transform: rotate(-75deg) scaleX(-1);
+        width: 150px;
+        margin-top: 10px;
+
+        * {
+            stroke-width: 2px;
+        }
+    }
+}

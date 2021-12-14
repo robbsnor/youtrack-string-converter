@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ConverterComponent } from './components/converter/converter.component';
+import { CopyHintComponent } from './components/copy-hint/copy-hint.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConverterComponent
+    ConverterComponent,
+    CopyHintComponent
   ],
   imports: [
     BrowserModule,

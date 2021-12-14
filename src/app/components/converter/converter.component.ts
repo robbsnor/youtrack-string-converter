@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
+import { Clipboard } from '@angular/cdk/clipboard';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -8,11 +8,11 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./converter.component.scss']
 })
 export class ConverterComponent implements OnInit {
-    issue = new FormControl('');
-    formatedIssue = '';
+    issue = new FormControl();
+    convertedIssue = '';
     copyComplete = false;
 
-    constructor() {
+    constructor(private clipboard: Clipboard) {
         this.convert();
     }
 
@@ -24,13 +24,14 @@ export class ConverterComponent implements OnInit {
         this.issue.valueChanges.subscribe((val: string) => {
 
             let newVal = val.replace(/\s+/g, '-');
-            newVal = newVal.replace(/["'“”();:]/g, "")
-            this.formatedIssue = newVal;
+            newVal = newVal.replace(/["'“”();:!?]/g, "")
+            this.convertedIssue = newVal;
         });
     }
 
     copy(): void {
-        console.log(this.formatedIssue);
+        console.log(this.convertedIssue);
+        this.clipboard.copy(this.convertedIssue);
         this.copyComplete = true;
     }
 }
