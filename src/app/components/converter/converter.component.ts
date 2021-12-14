@@ -10,6 +10,7 @@ import { FormControl } from '@angular/forms';
 export class ConverterComponent implements OnInit {
     issue = new FormControl('');
     formatedIssue = '';
+    copyComplete = false;
 
     constructor() {
         this.convert();
@@ -26,5 +27,10 @@ export class ConverterComponent implements OnInit {
             newVal = newVal.replace(/["'“”();:]/g, "")
             this.formatedIssue = newVal;
         });
+    }
+
+    copy(): void {
+        console.log(this.formatedIssue);
+        this.copyComplete = true;
     }
 }
