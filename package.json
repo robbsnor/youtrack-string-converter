@@ -18,9 +18,11 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-typescript": "^6.0.0-alpha.1",
     "gulp-uglify": "^3.0.2",
-    "typescript": "^4.4.4"
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.11",
+    "webpack-merge": "^4.2.2",
+    "webpack-stream": "^5.2.1"
   },
   "dependencies": {
     "bootstrap": "^5.0.2"

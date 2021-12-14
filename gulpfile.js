@@ -8,7 +8,7 @@ const browserSync = require('browser-sync').create('bsServer');
 const dev = require('./gulpfile.dev').functions;
 const prod = require('./gulpfile.prod').functions;
 
-const justMoveFileTypes = 'jpg,png,gif,svg,php,pdf,ico,mp3,json';
+const justMoveFileTypes = 'jpg,png,gif,svg,php,pdf,ico,mp3';
 
 const nodeFiles = [
   // {
@@ -69,14 +69,15 @@ function bsServe() {
   gulp.watch('./src/**/*.mustache', compileTemplates);
   gulp.watch('./src/**/*.html', compileTemplates);
   gulp.watch('./src/**/*.scss', dev.compileScss);
-  gulp.watch('./src/**/*.ts', dev.compileTs);
+  gulp.watch('./src/**/*.js', dev.compileWebpack);
+  gulp.watch('./src/**/*.json', dev.compileWebpack);
 }
 
 
 
 // register tasks
-const devCompile = gulp.series(deleteDist, gulp.parallel(compileTemplates, dev.compileScss, dev.compileTs, getNodeModuleAssets, moveFiles,));
+const devCompile = gulp.series(deleteDist, gulp.parallel(compileTemplates, dev.compileScss, dev.compileWebpack, getNodeModuleAssets, moveFiles,));
 
 exports.compile   = devCompile;
 exports.start     = gulp.series(devCompile, bsServe);
-exports.prod      = gulp.series(deleteDist, gulp.parallel(compileTemplates, prod.compileScss, prod.compileTs, getNodeModuleAssets, moveFiles));
+exports.prod      = gulp.series(deleteDist, gulp.parallel(compileTemplates, prod.compileScss, prod.compileWebpack, getNodeModuleAssets, moveFiles));
