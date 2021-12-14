@@ -1,0 +1,33 @@
+.converter {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-color: black;
+
+    &__background {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: url('/assets/bg.jpg');
+        background-size: cover;
+        opacity: .5;
+        filter: blur(10px)
+    }
+
+    &__container {
+        max-width: 1200px;
+        width: 100%;
+        z-index: 1;
+    }
+
+    &__input {
+        padding: 20px 40px;
+        background: rgb(2, 0, 36);
+        background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(0, 0, 0, 0.6250875350140056) 100%);
+        border-radius: 10px;
+        border: 2px solid black;
+        color: white;
+    }
+}
