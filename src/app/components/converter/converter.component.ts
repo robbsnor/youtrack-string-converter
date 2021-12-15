@@ -1,37 +1,54 @@
 import { Component, OnInit } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
+
+interface Issue {
+    prefix: string;
+    title: string
+}
 @Component({
   selector: 'converter',
   templateUrl: './converter.component.html',
   styleUrls: ['./converter.component.scss']
 })
 export class ConverterComponent implements OnInit {
-    issue = new FormControl();
-    convertedIssue = '';
+    issue = new FormGroup({
+        prefix: new FormControl('feature'),
+        title: new FormControl('')
+    });
+
+    branchName = '';
     copyComplete = false;
 
+    capitalizeFirstLetter(string: string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
     constructor(private clipboard: Clipboard) {
-        this.convert();
-    }
 
-    ngOnInit(): void {
-        this.convert();
-    }
+        this.issue.valueChanges.subscribe((issue: Issue) => {
+            // remove unwanted characters
+            let title = issue.title.replace(/\s+/g, '-').replace(/["'“”();:!?.,\[\]]/g, "");
 
-    convert(): void {
-        this.issue.valueChanges.subscribe((val: string) => {
+            // casing
+            let projectName = title.substring(0, 3).toUpperCase();
+            let restOfTitle = title.substring(3, 99).toLowerCase();
 
-            let newVal = val.replace(/\s+/g, '-');
-            newVal = newVal.replace(/["'“”();:!?]/g, "")
-            this.convertedIssue = newVal;
+            let prefix = (issue.prefix === 'none') ? '': `${issue.prefix}/`;
+
+            let branchName = prefix + projectName + restOfTitle;
+            this.branchName = branchName;
+
+            console.log(this.branchName);
         });
     }
 
+    ngOnInit(): void {
+    }
+
     copy(): void {
-        console.log(this.convertedIssue);
-        this.clipboard.copy(this.convertedIssue);
+        this.clipboard.copy(this.branchName);
         this.copyComplete = true;
     }
 }

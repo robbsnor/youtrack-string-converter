@@ -1,21 +1,31 @@
 <div class="converter">
     <div class="converter__background"></div>
     <div class="converter__container">
-        <div class="converter__title">
-            Git-ready branch names <br>from your YouTrack issues!
-        </div>
+        <h1 class="converter__title">
+            Converts your YouTrack title<br> into a Git branch name
+        </h1>
 
         <!-- SOS-308 [CRO] Label op “Meest gekozen” bedrag (testen in december) -->
 
         <copy-hint class="converter__copy-hint"></copy-hint>
 
-        <div class="converter__input-container" [ngClass]="{'converter__input-container--copy-succes' : copyComplete}">
-            <input type="text" class="converter__input" placeholder="YouTrack title..." [formControl]="issue" (change)="convert()">
+        <div class="converter__input-container" [formGroup]="issue" [ngClass]="{'converter__input-container--copy-succes' : copyComplete}">
+            <select name="prefix" formControlName="prefix" class="converter__select" >
+                <option value="feature">feature</option>
+                <option value="release">release</option>
+                <option value="fix">fix</option>
+                <option value="none">none</option>
+            </select>
+            <input type="text" formControlName="title" placeholder="YouTrack title..." spellcheck="false" class="converter__input">
             <button class="converter__copy" (click)="copy()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-copy"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
         </div>
 
         <div class="converter__preview">
-            <span class="converter__preview-pre">your new branch name is:</span> {{ convertedIssue }}
+            <span class="converter__preview-pre">your new branch name is:</span> {{ branchName }}
         </div>
+        <div class="converter__preview">
+            <!-- <span class="converter__preview-pre">data:</span> {{issue.value | json}} -->
+        </div>
+
     </div>
 </div>
