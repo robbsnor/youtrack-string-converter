@@ -33,7 +33,7 @@ export class ConverterComponent implements OnInit {
 
             // casing
             let projectName = title.substring(0, 3).toUpperCase();
-            let restOfTitle = title.substring(3, 99).toLowerCase();
+            let restOfTitle = title.substring(3).toLowerCase();
 
             let prefix = (issue.prefix === 'none') ? '': `${issue.prefix}/`;
 
