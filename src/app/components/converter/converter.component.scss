@@ -14,7 +14,7 @@
         right: 0;
         bottom: 0;
         left: 0;
-        background-image: url('/assets/bg.svg');
+        // background-image: url('/assets/bg.svg');;
         background-size: cover;
         opacity: .2;
     }
@@ -120,7 +120,7 @@
         flex-direction: column;
         gap: 10px;
         padding: 20px 0;
-        margin-left: 10px;
+        margin: 0 20px;
     }
 
     &__preview {
@@ -130,18 +130,17 @@
         align-items: center;
         gap: 20px;
         padding: 10px;
-        transition: all .1s;
         background: transparent;
         border-radius: 5px;
         cursor: pointer;
+        border: 2px solid #101010;
 
         &:hover {
-            background: rgba(white, .2);
+            border-color: #202020;
         }
 
         &:focus {
-            background: black;
-            box-shadow: 0 0 2px 4px rgba(255, 118, 18, 0.5);
+            color: white;
 
             #{ $self }__copy-succes {
                 visibility: visible;
