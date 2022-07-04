@@ -22,7 +22,9 @@ export class ConverterComponent {
 
     public branchName = '';
 
-    constructor(private clipboard: Clipboard) {
+    constructor(
+        private clipboard: Clipboard
+    ) {
         this.issue.valueChanges.subscribe((issue: Issue) => {
             this.branchName = this.getBranchGame(issue);
 
