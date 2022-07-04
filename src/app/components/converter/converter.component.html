@@ -7,9 +7,7 @@
 
         <!-- SOS-308 [CRO] Label op “Meest gekozen” bedrag (testen in december) -->
 
-        <copy-hint class="converter__copy-hint"></copy-hint>
-
-        <div class="converter__input-container" [formGroup]="issue" [ngClass]="{'converter__input-container--copy-succes' : copyComplete}">
+        <div class="converter__input-container" [formGroup]="issue">
             <select name="prefix" formControlName="prefix" class="converter__select" >
                 <option value="feature">feature</option>
                 <option value="release">release</option>
@@ -17,15 +15,14 @@
                 <option value="none">none</option>
             </select>
             <input type="text" formControlName="title" placeholder="YouTrack title..." spellcheck="false" class="converter__input">
-            <button class="converter__copy" (click)="copy()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-copy"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
         </div>
 
-        <div class="converter__preview">
-            <span class="converter__preview-pre">your new branch name is:</span> {{ branchName }}
+        <div class="converter__previews">
+            <button *ngFor="let variation of copyVariations" (click)="copy(variation)" class="converter__preview">
+                <div class="converter__copy"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-copy"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></div>
+                <div>{{ variation }}</div>
+                <div class="converter__copy-succes">Copied!</div>
+            </button>
         </div>
-        <div class="converter__preview">
-            <!-- <span class="converter__preview-pre">data:</span> {{issue.value | json}} -->
-        </div>
-
     </div>
 </div>
