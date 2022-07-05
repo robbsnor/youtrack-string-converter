@@ -2,6 +2,11 @@ import { Component } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { FormControl, FormGroup } from '@angular/forms';
 
+export interface Suggestions {
+    description: string;
+    command: string;
+}
+
 
 interface Issue {
     prefix: string;
@@ -17,9 +22,7 @@ export class ConverterComponent {
         prefix: new FormControl('feature'),
         title: new FormControl('')
     });
-
-    public copyVariations: string[] = [];
-
+    public suggestions: Suggestions[] = [];
     public branchName = '';
 
     constructor(
@@ -27,13 +30,25 @@ export class ConverterComponent {
     ) {
         this.issue.valueChanges.subscribe((issue: Issue) => {
             this.branchName = this.getBranchGame(issue);
-
-            this.copyVariations = [
-                this.branchName,
-                `git checkout -b ${this.branchName}`,
-                `git checkout master && git pull && git checkout -b ${this.branchName}`
-            ]
+            this.suggestions = this.getSuggestions();
         });
+    }
+
+    getSuggestions() {
+        return this.suggestions = [
+            {
+                description: 'Copy new branch name',
+                command: this.branchName
+            },
+            {
+                description: 'Create new branch',
+                command: `git checkout -b ${this.branchName}`
+            },
+            {
+                description: 'Create new branch from master',
+                command: `git checkout master && git pull && git checkout -b ${this.branchName}`
+            },
+        ]
     }
 
     getBranchGame(issue: Issue) {
